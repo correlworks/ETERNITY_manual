@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bebeswan Baby Carrier Instruction Manual - Booklet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8A6B57;
+            --secondary: #C4A68A;
+            --accent: #E8D4BA;
+            --text-dark: #2C2418;
+            --text-light: #6B5D4F;
+            --bg-cream: #FAF8F5;
+            --shadow: rgba(138, 107, 87, 0.15);
+            --border: #D4C4B0;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .page {
+                page-break-after: always;
+                margin: 0;
+            }
+            .page:last-child {
+                page-break-after: auto;
+            }
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F5F1ED;
+            padding: 20px;
+            line-height: 1.9;
+            color: var(--text-dark);
+        }
+
+        .booklet {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            position: relative;
+            overflow: visible;
+            margin-bottom: 40px;
+            page-break-after: always;
+            border: none;
+            box-shadow: 0 4px 20px rgba(138, 107, 87, 0.08);
+        }
+
+        .page:last-child {
+            margin-bottom: 0;
+        }
+
+        .page::after {
+            content: '✂️ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ✂️';
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            letter-spacing: 2px;
+            background: #E5E5E5;
+            padding: 5px 0;
+            z-index: 10;
+        }
+
+        .page:last-child::after {
+            display: none;
+        }
+
+        @media print {
+            .page::after {
+                display: none;
+            }
+            .page {
+                border: none;
+            }
+        }
+
+        /* Cover */
+        .cover {
+            background: linear-gradient(135deg, #FF9AA2 0%, #FFB7B2 50%, #FFDAC1 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+
+        .cover::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+            border-radius: 50%;
+        }
+
+        .cover-content {
+            text-align: center;
+            z-index: 1;
+            color: white;
+        }
+
+        .cover-icon {
+            font-size: 120px;
+            margin-bottom: 30px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cover h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            letter-spacing: -1px;
+        }
+
+        .cover h2 {
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+
+        .cover-subtitle {
+            font-size: 20px;
+            font-weight: 300;
+            margin-top: 40px;
+            opacity: 0.9;
+        }
+
+        .cover-brand {
+            position: absolute;
+            bottom: 50px;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* Table of Contents */
+        .toc {
+            padding: 40px 50px;
+        }
+
+        .toc-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-item {
+            padding: 14px 20px;
+            margin-bottom: 8px;
+            border-left: 4px solid var(--primary);
+            background: linear-gradient(90deg, rgba(138, 107, 87, 0.04) 0%, transparent 100%);
+            border-radius: 0 10px 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .toc-item:hover {
+            background: linear-gradient(90deg, rgba(138, 107, 87, 0.08) 0%, transparent 100%);
+            transform: translateX(8px);
+            box-shadow: 0 2px 8px rgba(138, 107, 87, 0.1);
+        }
+
+        .toc-number {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 17px;
+            margin-right: 12px;
+        }
+
+        .toc-text {
+            flex: 1;
+            color: var(--text-dark);
+        }
+
+        .toc-page {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        /* Content Pages */
+        .content-page {
+            padding: 35px 45px 50px 45px;
+        }
+
+        .page-header {
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 120px;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 30px;
+            right: 60px;
+            font-size: 16px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .section-number {
+            display: inline-block;
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            color: white;
+            border-radius: 16px;
+            text-align: center;
+            line-height: 56px;
+            font-size: 26px;
+            font-weight: 700;
+            margin-right: 18px;
+            box-shadow: 0 4px 16px rgba(138, 107, 87, 0.25);
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text-dark);
+            display: inline-block;
+            vertical-align: middle;
+            letter-spacing: -0.5px;
+        }
+
+        .subsection-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 18px 0 12px 0;
+            padding-left: 20px;
+            border-left: 5px solid var(--primary);
+            position: relative;
+        }
+
+        .subsection-title::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 6px;
+            height: 40%;
+            background: var(--secondary);
+        }
+
+        .instruction-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .instruction-item {
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            background: var(--bg-cream);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            position: relative;
+            padding-left: 55px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .instruction-item:hover {
+            border-color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .instruction-item::before {
+            content: '✓';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .step-item {
+            padding: 13px 18px;
+            margin-bottom: 10px;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            position: relative;
+            padding-left: 60px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .step-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 16px var(--shadow);
+        }
+
+        .step-number {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px;
+            height: 35px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 3px 8px var(--shadow);
+        }
+
+        .image-container {
+            margin: 15px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .image-container-quad {
+            margin: 15px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .image-number {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: 0 3px 12px rgba(138, 107, 87, 0.3);
+            z-index: 10;
+            border: 3px solid white;
+        }
+
+        .image-wrapper {
+            background: var(--bg-cream);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 3px 12px var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-wrapper:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 24px rgba(138, 107, 87, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #E9ECEF 0%, #DEE2E6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #ADB5BD;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .image-placeholder-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .image-caption {
+            padding: 10px;
+            background: #FAFAFA;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFF3E8 100%);
+            border-left: 5px solid var(--secondary);
+            border-radius: 12px;
+            padding: 14px;
+            margin: 14px 0;
+            position: relative;
+            border: 1px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(196, 166, 138, 0.1);
+        }
+
+        .note-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .note-content {
+            color: var(--text-dark);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #FFF5F5 0%, #FFEDED 100%);
+            border-left: 5px solid #DC6B6B;
+            border-radius: 12px;
+            padding: 14px;
+            margin: 14px 0;
+            position: relative;
+            border: 1px solid #FFD4D4;
+            box-shadow: 0 2px 8px rgba(220, 107, 107, 0.1);
+        }
+
+        .warning-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #C53030;
+            margin-bottom: 8px;
+        }
+
+        .warning-content {
+            color: #991B1B;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            background: linear-gradient(transparent 60%, rgba(138, 107, 87, 0.2) 60%);
+            font-weight: 700;
+            padding: 0 5px;
+            color: var(--primary);
+        }
+
+        .qr-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(181, 234, 215, 0.1) 0%, rgba(181, 234, 215, 0.05) 100%);
+            border-radius: 12px;
+        }
+
+        .qr-placeholder {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border: 3px dashed var(--primary);
+            border-radius: 12px;
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .qr-text {
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Back Cover */
+        .back-cover {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 50%, var(--primary) 100%);
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .back-cover-content {
+            color: white;
+            text-align: center;
+        }
+
+        .back-cover h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            font-size: 20px;
+            line-height: 2;
+            margin: 40px 0;
+        }
+
+        .contact-info strong {
+            font-size: 24px;
+            display: block;
+            margin-top: 20px;
+        }
+
+        .back-cover-footer {
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="booklet">
+        <!-- Cover -->
+        <div class="page cover" style="background: white; padding: 0; display: flex; align-items: center; justify-content: center; position: relative;">
+            <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155751.jpeg" 
+                 alt="Cover Main Image" 
+                 style="width: 60%; height: 60%; object-fit: cover;">
+            <!-- Company Logo -->
+            <div style="position: absolute; top: 30px; right: 30px; z-index: 2;">
+                <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763105933340.png" 
+                     alt="Bebeswan Logo" 
+                     style="max-width: 120px; height: auto; display: block;">
+            </div>
+            <!-- Title -->
+            <div style="position: absolute; top: 100px; left: 50%; transform: translateX(-50%); text-align: center; z-index: 2; color: #000;">
+                <h1 style="font-size: 42px; font-weight: 700; letter-spacing: 2px; line-height: 1.6; margin: 0;">
+                    bebeswan<br>
+                    ETERNITY<br>
+                    Vest Baby Carrier
+                </h1>
+            </div>
+            <!-- Certification Logo -->
+            <div style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); text-align: center; z-index: 2;">
+                <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763009437617.jpg" 
+                     alt="Certification Logo" 
+                     style="max-width: 350px; height: auto; display: block;">
+            </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="page toc">
+            <h2 class="toc-title">📑 Table of Contents</h2>
+            <ul class="toc-list">
+                <li class="toc-item">
+                    <span class="toc-number">00</span>
+                    <span class="toc-text">Product Parts Names</span>
+                    <span class="toc-page">p.3-4</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">01</span>
+                    <span class="toc-text">Proper Wearing Method</span>
+                    <span class="toc-page">p.5</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">02</span>
+                    <span class="toc-text">Checklist When Carrying Baby</span>
+                    <span class="toc-page">p.6</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">03</span>
+                    <span class="toc-text">Breastfeeding & Back Zipper Usage</span>
+                    <span class="toc-page">p.7</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">04</span>
+                    <span class="toc-text">3-Stage Neck Support Adjustment</span>
+                    <span class="toc-page">p.8</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">05</span>
+                    <span class="toc-text">Sleeping Hood Usage</span>
+                    <span class="toc-page">p.9</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">06</span>
+                    <span class="toc-text">Booster Usage Method</span>
+                    <span class="toc-page">p.10-11</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">07</span>
+                    <span class="toc-text">Newborn Usage Method</span>
+                    <span class="toc-page">p.12</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">08</span>
+                    <span class="toc-text">How to Wear Alone</span>
+                    <span class="toc-page">p.13</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">09</span>
+                    <span class="toc-text">Drool Bib Attachment Method</span>
+                    <span class="toc-page">p.14</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">10</span>
+                    <span class="toc-text">Precautions</span>
+                    <span class="toc-page">p.15</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">11</span>
+                    <span class="toc-text">Proper Washing Method</span>
+                    <span class="toc-page">p.16</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">12</span>
+                    <span class="toc-text">Warranty Policy</span>
+                    <span class="toc-page">p.17</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">13</span>
+                    <span class="toc-text">Product Information</span>
+                    <span class="toc-page">p.18</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 00. Product Parts Names - Page 1 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">00</span>
+                <h2 class="section-title">Product Parts Names</h2>
+            </div>
+
+            <p style="font-size: 15px; color: var(--text-dark); margin-bottom: 15px; text-align: center;">
+                Check the names of each part of the baby carrier
+            </p>
+
+            <div class="image-container-quad">
+                <div class="image-wrapper" style="position: relative;">
+                    <div class="image-number">1</div>
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764559531120.jpg" 
+                         alt="Product Parts Names 1" 
+                         style="width: 90%; height: 320px; object-fit: contain; background: white; margin: 0 auto; display: block;">
+                </div>
+                <div class="image-wrapper" style="position: relative;">
+                    <div class="image-number">2</div>
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764559531123.jpg" 
+                         alt="Product Parts Names 2" 
+                         style="width: 90%; height: 320px; object-fit: contain; background: white; margin: 0 auto; display: block;">
+                </div>
+                <div class="image-wrapper" style="position: relative;">
+                    <div class="image-number">3</div>
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764559531125.jpg" 
+                         alt="Product Parts Names 3" 
+                         style="width: 90%; height: 320px; object-fit: contain; background: white; margin: 0 auto; display: block;">
+                </div>
+                <div class="image-wrapper" style="position: relative;">
+                    <div class="image-number">4</div>
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764559531128.jpg" 
+                         alt="Product Parts Names 4" 
+                         style="width: 90%; height: 320px; object-fit: contain; background: white; margin: 0 auto; display: block;">
+                </div>
+            </div>
+
+            <div class="page-number">- 3 -</div>
+        </div>
+
+        <!-- 00. Product Parts Names - Page 2 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">00</span>
+                <h2 class="section-title">Product Parts Names</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px;">
+                <div class="image-wrapper" style="position: relative;">
+                    <div class="image-number">5</div>
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764559531130.jpg" 
+                         alt="Product Parts Names 5" 
+                         style="width: 90%; height: 320px; object-fit: contain; background: white; margin: 0 auto; display: block;">
+                </div>
+                <div class="image-wrapper" style="position: relative;">
+                    <div class="image-number">6</div>
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764559531133.jpg" 
+                         alt="Product Parts Names 6" 
+                         style="width: 90%; height: 320px; object-fit: contain; background: white; margin: 0 auto; display: block;">
+                </div>
+            </div>
+
+            <div class="page-number">- 4 -</div>
+        </div>
+
+        <!-- 01. Proper Wearing Method - Page 1 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">Proper Wearing Method</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 15px;">
+                <!-- 1. Waist Belt Position -->
+                <div class="image-wrapper" style="height: 100%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155755.png" 
+                         alt="Wear the waist belt above the pelvis and tighten it as much as possible" 
+                         style="width: 100%; height: 300px; object-fit: cover; background: white;">
+                    <div class="image-caption" style="padding: 8px; background: white; min-height: 48px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; line-height: 1.3;">
+                        <strong>Wear the waist belt above the pelvis and tighten it as much as possible</strong>
+                    </div>
+                </div>
+
+                <!-- 2. Shoulder Strap Adjustment -->
+                <div class="image-wrapper" style="height: 100%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155738.png" 
+                         alt="Adjust the shoulder straps according to your baby's growth" 
+                         style="width: 100%; height: 300px; object-fit: cover; background: white;">
+                    <div class="image-caption" style="padding: 8px; background: white; min-height: 48px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; line-height: 1.3;">
+                        <strong>Adjust the shoulder straps according to your baby's growth</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 15px;">
+                <!-- 3. Side Strap Adjustment -->
+                <div class="image-wrapper" style="height: 100%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155744.png" 
+                         alt="Tighten the side straps for better weight distribution and comfort" 
+                         style="width: 100%; height: 300px; object-fit: cover; background: white;">
+                    <div class="image-caption" style="padding: 8px; background: white; min-height: 48px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; line-height: 1.3;">
+                        <strong>Tighten the side straps for better weight distribution and comfort</strong>
+                    </div>
+                </div>
+
+                <!-- 4. Leg Buckle for Forward Facing -->
+                <div class="image-wrapper" style="height: 100%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155714.png" 
+                         alt="Unfasten the leg buckle when forward facing" 
+                         style="width: 100%; height: 300px; object-fit: cover; background: white;">
+                    <div class="image-caption" style="padding: 8px; background: white; min-height: 48px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; line-height: 1.3;">
+                        <strong>Unfasten the leg buckle when forward facing</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box" style="padding: 12px; margin: 12px 0;">
+                <div class="note-title" style="font-size: 16px; margin-bottom: 6px;">💡 Important TIP</div>
+                <div class="note-content" style="font-size: 13px;">
+                    <strong>• Face-to-face:</strong> Adjust the (Lumilock) buckle according to your baby's growth.<br>
+                    <strong>• Forward facing:</strong> Unfasten the (Lumilock) leg buckle.<br>
+                    <strong>• When all straps are tightened properly,</strong> the weight is evenly distributed for comfortable long-term wear.
+                </div>
+            </div>
+
+            <div class="page-number">- 5 -</div>
+        </div>
+
+        <!-- 02. Checklist When Carrying Baby -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Checklist When Carrying Baby</h2>
+            </div>
+
+            <h3 class="subsection-title">Just Check These 3 Things!</h3>
+
+            <div class="step-item">
+                <span class="step-number">1</span>
+                <span class="highlight">Hold the zipper with one hand and the top part of the zipper with the other hand</span> to engage them.
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">2</span>
+                Leave the zipper <span class="highlight">about a hand's width from the bottom</span> for easy zipping.
+            </div>
+
+            <div style="max-width: 600px; margin: 15px auto;">
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764230467887.png" 
+                         alt="When carrying baby, leave zipper about a hand's width from bottom for easy zipping" 
+                         style="width: 100%; height: 300px; object-fit: cover; background: white;">
+                    <div class="image-caption" style="padding: 8px; background: white; text-align: center; font-size: 12px; line-height: 1.3;">
+                        <strong>When carrying baby, leave zipper about a hand's width from bottom for easy zipping</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">3</span>
+                <span class="highlight">Double-lock zipper</span> - Automatic lock when zipped up, press again for double lock!
+            </div>
+
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155748.png" 
+                         alt="Zipper Engagement" 
+                         style="width: 100%; height: 350px; object-fit: cover; border-radius: 12px;">
+                    <div class="image-caption">Zipper Engagement</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155699.png" 
+                         alt="Double Lock Safety Device" 
+                         style="width: 100%; height: 350px; object-fit: cover; border-radius: 12px;">
+                    <div class="image-caption">Double Lock Safety Device</div>
+                </div>
+            </div>
+
+            <div class="warning-box" style="padding: 12px; margin: 12px 0;">
+                <div class="warning-title" style="font-size: 16px; margin-bottom: 6px;">⚠️ Safety Check</div>
+                <div class="warning-content" style="font-size: 13px;">
+                    After carrying your baby, always check that the zipper is completely locked. Activate the double lock for safety.
+                </div>
+            </div>
+
+            <div class="page-number">- 6 -</div>
+        </div>
+
+        <!-- 03. Breastfeeding & Back Zipper -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Breastfeeding & Back Zipper Usage</h2>
+            </div>
+
+            <h3 class="subsection-title">When Breastfeeding</h3>
+            <div class="instruction-item">
+                <span class="highlight">(Staylock) Lower the zipper.</span> You can breastfeed comfortably.
+            </div>
+
+            <div style="max-width: 600px; margin: 15px auto;">
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155731.png" 
+                         alt="Lower the Staylock zipper for comfortable breastfeeding" 
+                         style="width: 100%; height: 320px; object-fit: cover; background: white;">
+                    <div class="image-caption" style="padding: 15px; background: white; text-align: center; font-size: 14px; line-height: 1.5;">
+                        <strong>Lower the Staylock zipper for comfortable breastfeeding.</strong>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Back Zipper Usage</h3>
+            <div class="instruction-item">
+                <span class="highlight">(Back zipper) is used</span> when laying the baby down, putting on or taking off the carrier, or putting the baby in and out.
+            </div>
+
+            <div style="max-width: 600px; margin: 15px auto;">
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155721.png"
+                         alt="Back zipper is used when laying baby down, putting on or taking off carrier, or putting baby in and out"
+                         style="width: 100%; height: 320px; object-fit: cover; background: white;">
+                    <div class="image-caption" style="padding: 15px; background: white; text-align: center; font-size: 14px; line-height: 1.5;">
+                        <strong>Back zipper is used when laying baby down, putting on or taking off carrier, or putting baby in and out.</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <div class="note-title">💡 Convenient Features</div>
+                <div class="note-content">
+                    Using the Staylock zipper allows comfortable breastfeeding without removing the carrier. The back zipper makes it easier to put on and take off the carrier.
+                </div>
+            </div>
+
+            <div class="page-number">- 7 -</div>
+        </div>
+
+        <!-- 04. 3-Stage Neck Support -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">3-Stage Neck Support Adjustment</h2>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">1</span>
+                <strong>Stage 1:</strong> Zip all the way up - <span class="highlight">Raise when baby falls asleep.</span>
+                <div style="margin-top: 10px;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155691.png" 
+                         alt="Stage 1: Zip all the way up - Raise when baby falls asleep" 
+                         style="width: 100%; max-width: 500px; height: 300px; object-fit: cover; border-radius: 8px;">
+                </div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">2</span>
+                <strong>Stage 2:</strong> Fold the raised zipper and secure - <span class="highlight">Suitable for babies who have difficulty holding their head up</span><br>
+                ⇒ Connect Dualock (male) and Dualock (female) 1
+                <div style="margin-top: 10px;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155695.png" 
+                         alt="Stage 2: Fold the raised zipper and secure - Suitable for babies who have difficulty holding their head up" 
+                         style="width: 100%; max-width: 500px; height: 300px; object-fit: cover; border-radius: 8px;">
+                </div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">3</span>
+                <strong>Stage 3:</strong> Fold in butterfly shape and secure - <span class="highlight">Suitable for looking around</span><br>
+                ⇒ Connect Dualock (male) and Dualock (female) 2
+                <div style="margin-top: 10px;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155702.png" 
+                         alt="Stage 3: Fold in butterfly shape and secure - Suitable for looking around" 
+                         style="width: 100%; max-width: 500px; height: 300px; object-fit: cover; border-radius: 8px;">
+                </div>
+            </div>
+
+            <div class="page-number">- 8 -</div>
+        </div>
+
+        <!-- 05. Sleeping Hood -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Sleeping Hood Usage</h2>
+            </div>
+
+            <h3 class="subsection-title">Front & Back Usage Method</h3>
+
+            <div class="instruction-item">
+                <strong>Face-to-face:</strong> <span class="highlight">Connect Hoodlock (male) 1 and Hoodlock (female)</span>
+            </div>
+
+            <div class="instruction-item">
+                <strong>Forward facing:</strong> <span class="highlight">Connect Hoodlock (male) 2 and Hoodlock (female)</span>
+            </div>
+
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155708.png" 
+                         alt="Hood usage when face-to-face" 
+                         style="width: 100%; height: 400px; object-fit: cover; background: white;">
+                    <div class="image-caption">Hood Usage When Face-to-Face</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155718.png" 
+                         alt="Hood usage when forward facing" 
+                         style="width: 100%; height: 400px; object-fit: cover; background: white;">
+                    <div class="image-caption">Hood Usage When Forward Facing</div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <div class="note-title">💡 Sleeping Hood Benefits</div>
+                <div class="note-content">
+                    When your baby falls asleep, using the sleeping hood provides comfortable head support and protection from sunlight and wind.
+                </div>
+            </div>
+
+            <div class="page-number">- 9 -</div>
+        </div>
+
+        <!-- 06. Booster Usage Method - Page 1 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">Booster Usage Method</h2>
+            </div>
+
+            <h3 class="subsection-title">Using as Booster on Chair</h3>
+
+            <div class="step-item" style="display: flex; align-items: center; gap: 20px; padding: 13px 18px; position: relative;">
+                <div style="flex: 0 0 45%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155734.png" 
+                         alt="Put the carrier on the chair backrest" 
+                         style="width: 100%; height: 280px; object-fit: contain; border-radius: 8px;">
+                </div>
+                <div style="flex: 1; padding-left: 60px; position: relative;">
+                    <span class="step-number" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%);">1</span>
+                    1. <span class="highlight">Put the carrier on the chair backrest</span> <br>
+                    2. <span class="highlight">Sit your baby facing forward</span>
+                </div>
+            </div>
+
+            <div class="step-item" style="display: flex; align-items: center; gap: 20px; padding: 13px 18px; position: relative;">
+                <div style="flex: 0 0 45%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155728.png" 
+                         alt="Tightly fasten the auxiliary belt around the baby's seat and seat board together" 
+                         style="width: 100%; height: 280px; object-fit: contain; border-radius: 8px;">
+                </div>
+                <div style="flex: 1; padding-left: 60px; position: relative;">
+                    <span class="step-number" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%);">2</span>
+                    <span class="highlight">Tightly fasten the auxiliary belt</span> around the baby's seat and seat board together.
+                </div>
+            </div>
+
+            <div class="step-item" style="display: flex; align-items: center; gap: 20px; padding: 13px 18px; position: relative;">
+                <div style="flex: 0 0 45%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155758.png" 
+                         alt="Pass the waist belt and side belt under the seat board through the chair legs and fasten" 
+                         style="width: 100%; height: 280px; object-fit: contain; border-radius: 8px;">
+                </div>
+                <div style="flex: 1; padding-left: 60px; position: relative;">
+                    <span class="step-number" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%);">3</span>
+                    <span class="highlight">Pass the waist belt and side belt</span> under the seat board through the chair legs and fasten.<br>
+                    <span class="highlight">Cross the side belt</span> around the baby's waist and fasten.
+                </div>
+            </div>
+
+            <div class="page-number">- 10 -</div>
+        </div>
+
+        <!-- 06. Booster Usage Method - Page 2 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">Booster Usage Method (Continued)</h2>
+            </div>
+
+            <div class="step-item" style="display: flex; align-items: center; gap: 20px; padding: 13px 18px; position: relative;">
+                <div style="flex: 0 0 45%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155741.png" 
+                         alt="Tighten the shoulder belt all the way and wrap the two connecting straps once around and fasten with snap" 
+                         style="width: 100%; height: 280px; object-fit: contain; border-radius: 8px;">
+                </div>
+                <div style="flex: 1; padding-left: 60px; position: relative;">
+                    <span class="step-number" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%);">4</span>
+                    <span class="highlight">Tighten the shoulder belt all the way</span> and wrap the two connecting straps once around and fasten with snap.
+                </div>
+            </div>
+
+            <div class="step-item" style="display: flex; align-items: center; gap: 20px; padding: 13px 18px; position: relative;">
+                <div style="flex: 0 0 45%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155705.png" 
+                         alt="Unfasten the leg buckle" 
+                         style="width: 100%; height: 280px; object-fit: contain; border-radius: 8px;">
+                </div>
+                <div style="flex: 1; padding-left: 60px; position: relative;">
+                    <span class="step-number" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%);">5</span>
+                    <span class="highlight">Unfasten the leg buckle</span>.
+                </div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">6</span>
+                Adjust all straps <span class="highlight">tightly</span>.
+            </div>
+
+            <div class="note-box">
+                <div class="note-title">💡 Booster Usage Tips</div>
+                <div class="note-content">
+                    While using as a booster, parents should always watch the baby carefully and never leave the baby unattended.
+                </div>
+            </div>
+
+            <div class="page-number">- 11 -</div>
+        </div>
+
+        <!-- 07. Newborn Usage Method -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">07</span>
+                <h2 class="section-title">Newborn Usage Method</h2>
+            </div>
+
+            <h3 class="subsection-title">Safe Newborn Wearing Method</h3>
+
+            <div class="step-item">
+                <span class="step-number">1</span>
+                Put on the carrier and <span class="highlight">lean back against a sofa</span>.
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">2</span>
+                Unfasten the shoulder buckle.
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">3</span>
+                Adjust the side straps <span class="highlight">loosely</span>.
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">4</span>
+                Hold your baby <span class="highlight">supporting the bottom and neck well</span>.
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">5</span>
+                Fasten the shoulder buckle again and <span class="highlight">tighten the side buckle</span>.
+            </div>
+
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1762998241901.png" 
+                         alt="Correct newborn posture" 
+                         style="width: 100%; height: 400px; object-fit: cover; border-radius: 12px;">
+                    <div class="image-caption">Correct Newborn Posture</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1762998241904.png" 
+                         alt="Completed wearing" 
+                         style="width: 100%; height: 400px; object-fit: cover; border-radius: 12px;">
+                    <div class="image-caption">Completed Wearing</div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <div class="warning-title">⚠️ Important</div>
+                <div class="warning-content">
+                    <strong>• When carrying in fetal position:</strong> Fasten the leg buckle.<br>
+                    <strong>• When carrying in normal position:</strong> Unfasten the leg buckle.
+                </div>
+            </div>
+
+            <div class="page-number">- 12 -</div>
+        </div>
+
+        <!-- 08. How to Wear Alone -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">08</span>
+                <h2 class="section-title">How to Wear Alone</h2>
+            </div>
+
+            <h3 class="subsection-title">Safely Wearing Alone</h3>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; align-items: start;">
+                <!-- Left: Image -->
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="image-wrapper" style="width: 100%;">
+                        <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1762928373544.png" 
+                             alt="How to wear alone" 
+                             style="width: 100%; height: auto; max-height: 600px; object-fit: contain; border-radius: 12px;">
+                    </div>
+                </div>
+
+                <!-- Right: Instructions -->
+                <div>
+                    <div class="step-item" style="margin-bottom: 14px;">
+                        <span class="step-number">1</span>
+                        Spread the carrier on a <span class="highlight">flat sofa or bed</span>.
+                    </div>
+
+                    <div class="step-item" style="margin-bottom: 14px;">
+                        <span class="step-number">2</span>
+                        Unfasten the shoulder buckle and side buckle.
+                    </div>
+
+                    <div class="step-item" style="margin-bottom: 14px;">
+                        <span class="step-number">3</span>
+                        Lay your baby on the carrying part.
+                    </div>
+
+                    <div class="step-item" style="margin-bottom: 14px;">
+                        <span class="step-number">4</span>
+                        <span class="highlight">Fasten the shoulder buckle and side buckle again</span>.
+                    </div>
+
+                    <div class="step-item" style="margin-bottom: 14px;">
+                        <span class="step-number">5</span>
+                        Sit your baby on a <span class="highlight">sofa or bed with a backrest</span>.
+                    </div>
+
+                    <div class="step-item" style="margin-bottom: 14px;">
+                        <span class="step-number">6</span>
+                        Put your arms through the vest carrier <span class="highlight">like putting on a backpack</span> and zip up.
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box" style="margin-top: 40px;">
+                <div class="note-title">💡 Tips for Wearing Alone</div>
+                <div class="note-content">
+                    It's safer to do this in a place with a backrest. Start slowly at first, and you can do it faster once you get used to it.
+                </div>
+            </div>
+
+            <div class="page-number">- 13 -</div>
+        </div>
+
+        <!-- 09. Drool Bib Attachment Method -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">09</span>
+                <h2 class="section-title">Drool Bib Attachment Method</h2>
+            </div>
+
+            <h3 class="subsection-title">Face-to-Face Drool Bib</h3>
+            <div class="instruction-item">
+                The face-to-face drool bib is <span class="highlight">wrapped around the carrier's shoulder straps</span> for use.
+            </div>
+
+            <div style="max-width: 600px; margin: 30px auto; text-align: center;">
+                <div class="image-wrapper" style="display: inline-block; width: 100%; background: #DECBAE;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155711.png" 
+                         alt="Face-to-face drool bib attachment" 
+                         style="width: 100%; max-width: 500px; height: 400px; object-fit: contain; border-radius: 12px; display: block; margin: 0 auto;">
+                    <div class="image-caption">Face-to-Face Drool Bib Attachment</div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Butterfly Drool Bib</h3>
+            <div class="instruction-item">
+                Attach the <span class="highlight">drool bib with label</span> to the right side based on the carrier wearing position.
+            </div>
+
+            <div style="max-width: 600px; margin: 30px auto; text-align: center;">
+                <div class="image-wrapper" style="display: inline-block; width: 100%; background: #DECBAE;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1764211155724.png" 
+                         alt="Butterfly drool bib attachment" 
+                         style="width: 100%; max-width: 500px; height: 400px; object-fit: contain; border-radius: 12px; display: block; margin: 0 auto;">
+                    <div class="image-caption">Butterfly Drool Bib Attachment</div>
+                </div>
+            </div>
+
+            <div class="page-number">- 14 -</div>
+        </div>
+
+        <!-- 10. Precautions -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">10</span>
+                <h2 class="section-title">Precautions</h2>
+            </div>
+
+            <p style="font-size: 14px; color: var(--text-dark); margin-bottom: 20px; text-align: center; font-weight: 500;">
+                This warning is based on Korean and European safety standards for infant carriers.<br>
+                Please check before use.
+            </p>
+
+            <div class="warning-box">
+                <div class="warning-title">⚠️ Fall Warning</div>
+                <div class="warning-content">
+                    <strong>Please check the following to prevent fall accidents:</strong><br><br>
+                    • Small babies can slip through leg openings.<br>
+                    • Always check that the baby's legs are spread and the baby is in the center of the seat.<br>
+                    • The user's standing balance affects both the user and the baby's movement.<br>
+                    • Always be careful when bending or leaning.<br>
+                    • Always check buckles/zippers/snap buttons/straps/adjustment devices before use.<br>
+                    • Check the product condition for any abnormalities every time you use it.<br>
+                    • The user's hands should always be in a position to protect the baby in case of unexpected dangerous situations.
+                </div>
+            </div>
+
+            <h3 class="subsection-title">⚠️ Usage Precautions</h3>
+            
+            <ul class="instruction-list">
+                <li class="instruction-item">This carrier is designed only for babies weighing 3.5kg ~ 15kg.</li>
+                <li class="instruction-item">This carrier was developed for daily use purposes, so never use it during active exercise.</li>
+                <li class="instruction-item">When you are not familiar with the usage, use it on a cushioned floor or with the help of an assistant.</li>
+                <li class="instruction-item">Always practice the wearing method in front of a mirror.</li>
+                <li class="instruction-item">Always check buckles/zippers/snap buttons/straps/adjustment devices before use.</li>
+                <li class="instruction-item">Do not use electrical appliances or cook while using the carrier, and do not consume hot drinks/food.</li>
+                <li class="instruction-item">After first using this carrier, always check if your baby dislikes it.</li>
+            </ul>
+
+            <div class="page-number">- 15 -</div>
+        </div>
+
+        <!-- 11. Proper Washing Method -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">11</span>
+                <h2 class="section-title">Proper Washing Method</h2>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 30px;">
+                <p style="font-size: 32px; margin-bottom: 10px;">🧺</p>
+                <p style="font-size: 16px; color: var(--text-dark);">Proper washing method for long-lasting use of the product</p>
+            </div>
+
+            <h3 class="subsection-title">✓ Washing Method</h3>
+            
+            <ul class="instruction-list">
+                <li class="instruction-item">Do not use bleach.</li>
+                <li class="instruction-item">Hand wash in cold water with neutral detergent.</li>
+                <li class="instruction-item">Always wash separately.</li>
+                <li class="instruction-item">Do not soak for long periods, and do not wash with hot water or boil.</li>
+                <li class="instruction-item">Never machine dry.</li>
+                <li class="instruction-item">After washing, lay flat and dry in a well-ventilated shade away from direct sunlight.</li>
+                <li class="instruction-item">When using a washing machine, use wool cycle and always put in a laundry bag for separate washing.</li>
+                <li class="instruction-item">For minor stains, pat with a wet towel or spot wash, and avoid frequent machine washing.</li>
+                <li class="instruction-item">Even baby-specific detergents may contain alkaline ingredients that can cause discoloration and fading, so use neutral detergent.</li>
+                <li class="instruction-item">Drying in a drum washer or dryer can cause product shrinkage, damage, and deformation, so dry naturally.</li>
+            </ul>
+
+            <div class="warning-box" style="margin-top: 30px;">
+                <div class="warning-title">⚠️ Important</div>
+                <div class="warning-content">
+                    Before washing, please check the precautions.<br>
+                    Issues caused by incorrect washing and drying are not grounds for exchange or return.
+                </div>
+            </div>
+
+            <div class="page-number">- 16 -</div>
+        </div>
+
+        <!-- 12. Warranty Policy -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">12</span>
+                <h2 class="section-title">Warranty Policy</h2>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 30px;">
+                <p style="font-size: 32px; margin-bottom: 10px;">🛡️</p>
+                <p style="font-size: 16px; color: var(--text-dark);">Bebeswan complies with consumer dispute policies to realize customer satisfaction.</p>
+                <p style="font-size: 16px; color: var(--text-dark); margin-top: 10px;">
+                    A <strong style="color: var(--primary); font-size: 20px;">1-year</strong> warranty period applies from the date of purchase,<br>
+                    and free A/S is provided if product defects occur.
+                </p>
+            </div>
+
+            <h3 class="subsection-title">✓ Exchange / Return</h3>
+            <div class="note-box">
+                <div class="note-content">
+                    If you are dissatisfied with function, design, or color, you can apply for exchange or return within 7 days of purchase<br>
+                    on the purchase site if the product is in resalable condition.
+                </div>
+            </div>
+
+            <h3 class="subsection-title">✓ Free Repair</h3>
+            <div class="note-box">
+                <div class="note-content">
+                    Free repair is provided if manufacturing defects appear during normal use.
+                </div>
+            </div>
+
+            <h3 class="subsection-title">✓ Paid Repair</h3>
+            <div class="warning-box">
+                <div class="warning-content">
+                    <strong>Repair costs will be charged even during the warranty period in the following cases:</strong><br><br>
+                    • Cases not due to manufacturing defects<br>
+                    • Product damage and malfunction due to normal use or consumer carelessness (e.g., zippers, buckles, etc.)<br>
+                    • Shipping costs are incurred for repairs of products purchased more than one month ago.
+                </div>
+            </div>
+
+            <h3 class="subsection-title">⚠️ Non-Repairable Items</h3>
+            <div class="warning-box">
+                <div class="warning-content">
+                    <strong>Even during the warranty period, repair is not possible for the following cases,<br>
+                    and products sent without authorization will be returned.</strong><br><br>
+                    • Fabric damage such as tears, wrinkles, holes due to customer carelessness<br>
+                    • Fabric damage such as discoloration, fading, shrinkage due to incorrect washing methods<br>
+                    • Wear and aging due to normal use<br>
+                    • Product repair and damage by third parties other than the company
+                </div>
+            </div>
+
+            <div class="page-number">- 17 -</div>
+        </div>
+
+        <!-- 13. Product Information -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">13</span>
+                <h2 class="section-title">Product Information</h2>
+            </div>
+
+            <div style="margin: 30px 0;">
+                <table style="width: 100%; border-collapse: collapse; border: 2px solid var(--primary); font-family: inherit; font-size: 13px;">
+                    <tr style="background: linear-gradient(135deg, var(--primary), var(--secondary)); font-family: inherit; font-size: 13px;">
+                        <th style="padding: 15px; border: 1px solid var(--primary); color: white; font-size: 13px; font-weight: 700; width: 30%; font-family: inherit;">Item</th>
+                        <th style="padding: 15px; border: 1px solid var(--primary); color: white; font-size: 13px; font-weight: 700; font-family: inherit;">Details</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">Product Name</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">Bebeswan Eternity Vest Baby Carrier</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">Color</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">Eternal Beige / Shadow Beige / Carbon Black / Titanium Silver</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">Age Range</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">0 ~ 36 months, under 15kg</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">Size</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">Free Size - Waist max 160cm, Chest max 160cm</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">Components</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">Carrier main product + Sleeping hood + Storage pouch</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">Material</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">
+                            Outer: Poly 100%<br>
+                            Inner: Poly 100%
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">Country of Origin</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">South Korea 🇰🇷</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">Manufacturer</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">Bebeswan Co., Ltd.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">Brand</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">Bebeswan</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">Care Instructions</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">Cold water separate wash, air dry</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">Quality Assurance Standard</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">According to relevant laws and consumer safety standards</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">Customer Service</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;"><strong>📞 +82 2-3443-1008</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">Email</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;"><strong>✉️ bebeswan@bebeswan.com</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">Address</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">242-15 Nonhyeon-dong, Gangnam-gu, Seoul, South Korea</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="note-box" style="margin-top: 30px;">
+                <div class="note-title">📋 Product Information</div>
+                <div class="note-content">
+                    For product inquiries, please contact Customer Service (02-3443-1008) or email (bebeswan@bebeswan.com).<br>
+                    Address: 242-15 Nonhyeon-dong, Gangnam-gu, Seoul, South Korea
+                </div>
+            </div>
+
+            <div class="page-number">- 18 -</div>
+        </div>
+
+        <!-- Back Cover -->
+        <div class="page back-cover">
+            <div class="back-cover-content">
+                <h2>🍼 Safe and Comfortable Parenting</h2>
+                <p style="font-size: 18px; line-height: 2;">
+                    Happy parenting time<br>
+                    with Bebeswan
+                </p>
+
+                <div class="contact-info">
+                    <strong>📞 Customer Service</strong>
+                    02-3443-1008
+                    
+                    <strong style="margin-top: 30px;">🏢 BEBESWAN</strong>
+                    Bulletproof Vest Baby Carrier Eternity
+                </div>
+
+                <div style="margin-top: 50px; font-size: 16px;">
+                    <p>Warranty Period: 1 year from purchase date</p>
+                    <p>Country of Origin: South Korea 🇰🇷</p>
+                    <p>KC Safety Certification Complete</p>
+                </div>
+            </div>
+
+            <div class="back-cover-footer">
+                <p>© 2025 BEBESWAN. All rights reserved.</p>
+                <p>The contents of this manual may be changed without notice for product improvement.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Print optimization
+        window.onbeforeprint = function() {
+            document.body.style.padding = '0';
+        };
+        
+        window.onafterprint = function() {
+            document.body.style.padding = '20px';
+        };
+    </script>
+</body>
+</html>
+

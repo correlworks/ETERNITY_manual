@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>베베스완 아기띠 사용 설명서 - 책자형</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8A6B57;
+            --secondary: #C4A68A;
+            --accent: #E8D4BA;
+            --text-dark: #2C2418;
+            --text-light: #6B5D4F;
+            --bg-cream: #FAF8F5;
+            --shadow: rgba(138, 107, 87, 0.15);
+            --border: #D4C4B0;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .page {
+                page-break-after: always;
+                margin: 0;
+            }
+            .page:last-child {
+                page-break-after: auto;
+            }
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: #F5F1ED;
+            padding: 20px;
+            line-height: 1.9;
+            color: var(--text-dark);
+        }
+
+        .booklet {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            position: relative;
+            overflow: visible;
+            margin-bottom: 40px;
+            page-break-after: always;
+            border: none;
+            box-shadow: 0 4px 20px rgba(138, 107, 87, 0.08);
+        }
+
+        .page:last-child {
+            margin-bottom: 0;
+        }
+
+        .page::after {
+            content: '✂️ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ✂️';
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            letter-spacing: 2px;
+            background: #E5E5E5;
+            padding: 5px 0;
+            z-index: 10;
+        }
+
+        .page:last-child::after {
+            display: none;
+        }
+
+        @media print {
+            .page::after {
+                display: none;
+            }
+            .page {
+                border: none;
+            }
+        }
+
+        /* 표지 */
+        .cover {
+            background: linear-gradient(135deg, #FF9AA2 0%, #FFB7B2 50%, #FFDAC1 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+
+        .cover::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+            border-radius: 50%;
+        }
+
+        .cover-content {
+            text-align: center;
+            z-index: 1;
+            color: white;
+        }
+
+        .cover-icon {
+            font-size: 120px;
+            margin-bottom: 30px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cover h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            letter-spacing: -1px;
+        }
+
+        .cover h2 {
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+
+        .cover-subtitle {
+            font-size: 20px;
+            font-weight: 300;
+            margin-top: 40px;
+            opacity: 0.9;
+        }
+
+        .cover-brand {
+            position: absolute;
+            bottom: 50px;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* 목차 */
+        .toc {
+            padding: 40px 50px;
+        }
+
+        .toc-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-item {
+            padding: 14px 20px;
+            margin-bottom: 8px;
+            border-left: 4px solid var(--primary);
+            background: linear-gradient(90deg, rgba(138, 107, 87, 0.04) 0%, transparent 100%);
+            border-radius: 0 10px 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .toc-item:hover {
+            background: linear-gradient(90deg, rgba(138, 107, 87, 0.08) 0%, transparent 100%);
+            transform: translateX(8px);
+            box-shadow: 0 2px 8px rgba(138, 107, 87, 0.1);
+        }
+
+        .toc-number {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 17px;
+            margin-right: 12px;
+        }
+
+        .toc-text {
+            flex: 1;
+            color: var(--text-dark);
+        }
+
+        .toc-page {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        /* 내용 페이지 */
+        .content-page {
+            padding: 35px 45px 50px 45px;
+        }
+
+        .page-header {
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 120px;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 30px;
+            right: 60px;
+            font-size: 16px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .section-number {
+            display: inline-block;
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            color: white;
+            border-radius: 16px;
+            text-align: center;
+            line-height: 56px;
+            font-size: 26px;
+            font-weight: 700;
+            margin-right: 18px;
+            box-shadow: 0 4px 16px rgba(138, 107, 87, 0.25);
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text-dark);
+            display: inline-block;
+            vertical-align: middle;
+            letter-spacing: -0.5px;
+        }
+
+        .subsection-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 18px 0 12px 0;
+            padding-left: 20px;
+            border-left: 5px solid var(--primary);
+            position: relative;
+        }
+
+        .subsection-title::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 6px;
+            height: 40%;
+            background: var(--secondary);
+        }
+
+        .instruction-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .instruction-item {
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            background: var(--bg-cream);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            position: relative;
+            padding-left: 55px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .instruction-item:hover {
+            border-color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .instruction-item::before {
+            content: '✓';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .step-item {
+            padding: 13px 18px;
+            margin-bottom: 10px;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            position: relative;
+            padding-left: 60px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .step-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 16px var(--shadow);
+        }
+
+        .step-number {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px;
+            height: 35px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 3px 8px var(--shadow);
+        }
+
+        .image-container {
+            margin: 15px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .image-container-quad {
+            margin: 15px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .image-number {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: 0 3px 12px rgba(138, 107, 87, 0.3);
+            z-index: 10;
+            border: 3px solid white;
+        }
+
+        .image-wrapper {
+            background: var(--bg-cream);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 3px 12px var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-wrapper:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 24px rgba(138, 107, 87, 0.2);
+            border-color: var(--secondary);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #E9ECEF 0%, #DEE2E6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #ADB5BD;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .image-placeholder-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .image-caption {
+            padding: 10px;
+            background: #FAFAFA;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFF3E8 100%);
+            border-left: 5px solid var(--secondary);
+            border-radius: 12px;
+            padding: 14px;
+            margin: 14px 0;
+            position: relative;
+            border: 1px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(196, 166, 138, 0.1);
+        }
+
+        .note-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .note-content {
+            color: var(--text-dark);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #FFF5F5 0%, #FFEDED 100%);
+            border-left: 5px solid #DC6B6B;
+            border-radius: 12px;
+            padding: 14px;
+            margin: 14px 0;
+            position: relative;
+            border: 1px solid #FFD4D4;
+            box-shadow: 0 2px 8px rgba(220, 107, 107, 0.1);
+        }
+
+        .warning-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #C53030;
+            margin-bottom: 8px;
+        }
+
+        .warning-content {
+            color: #991B1B;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            background: linear-gradient(transparent 60%, rgba(138, 107, 87, 0.2) 60%);
+            font-weight: 700;
+            padding: 0 5px;
+            color: var(--primary);
+        }
+
+        .qr-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(181, 234, 215, 0.1) 0%, rgba(181, 234, 215, 0.05) 100%);
+            border-radius: 12px;
+        }
+
+        .qr-placeholder {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border: 3px dashed var(--primary);
+            border-radius: 12px;
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .qr-text {
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* 뒷표지 */
+        .back-cover {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 50%, var(--primary) 100%);
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .back-cover-content {
+            color: white;
+            text-align: center;
+        }
+
+        .back-cover h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            font-size: 20px;
+            line-height: 2;
+            margin: 40px 0;
+        }
+
+        .contact-info strong {
+            font-size: 24px;
+            display: block;
+            margin-top: 20px;
+        }
+
+        .back-cover-footer {
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="booklet">
+        <!-- 표지 -->
+        <div class="page cover" style="background: white; padding: 0; display: flex; align-items: center; justify-content: center; position: relative;">
+            <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763106353477.jpg" 
+                 alt="이터니티_정면.jpg" 
+                 style="width: 60%; height: 60%; object-fit: cover;">
+            <!-- 회사 로고 -->
+            <div style="position: absolute; top: 30px; right: 30px; z-index: 2;">
+                <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763105933340.png" 
+                     alt="베베스완로고_ia.png" 
+                     style="max-width: 120px; height: auto; display: block;">
+            </div>
+            <!-- 제목 -->
+            <div style="position: absolute; top: 100px; left: 50%; transform: translateX(-50%); text-align: center; z-index: 2; color: #000;">
+                <h1 style="font-size: 42px; font-weight: 700; letter-spacing: 2px; line-height: 1.6; margin: 0;">
+                    bebeswan<br>
+                    ETERNITY<br>
+                    Vest Baby Carrier
+                </h1>
+            </div>
+            <!-- 인증 로고 -->
+            <div style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); text-align: center; z-index: 2;">
+                <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763009437617.jpg" 
+                     alt="인증로고" 
+                     style="max-width: 350px; height: auto; display: block;">
+            </div>
+        </div>
+
+        <!-- 목차 -->
+        <div class="page toc">
+            <h2 class="toc-title">📑 목차 Contents</h2>
+            <ul class="toc-list">
+                <li class="toc-item">
+                    <span class="toc-number">00</span>
+                    <span class="toc-text">제품 부위 명칭</span>
+                    <span class="toc-page">p.3-4</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">01</span>
+                    <span class="toc-text">정확한 착용방법</span>
+                    <span class="toc-page">p.5</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">02</span>
+                    <span class="toc-text">아기를 안을 때 확인사항</span>
+                    <span class="toc-page">p.6</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">03</span>
+                    <span class="toc-text">모유수유 & 백지퍼 사용법</span>
+                    <span class="toc-page">p.7</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">04</span>
+                    <span class="toc-text">3단계 목받침 조절</span>
+                    <span class="toc-page">p.8</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">05</span>
+                    <span class="toc-text">슬리핑후드 사용법</span>
+                    <span class="toc-page">p.9</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">06</span>
+                    <span class="toc-text">부스터 사용방법</span>
+                    <span class="toc-page">p.10-11</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">07</span>
+                    <span class="toc-text">신생아 사용방법</span>
+                    <span class="toc-page">p.12</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">08</span>
+                    <span class="toc-text">혼자 업는 방법</span>
+                    <span class="toc-page">p.13</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">09</span>
+                    <span class="toc-text">침받이 부착 방법</span>
+                    <span class="toc-page">p.14</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">10</span>
+                    <span class="toc-text">주의사항</span>
+                    <span class="toc-page">p.15</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">11</span>
+                    <span class="toc-text">올바른 세탁방법</span>
+                    <span class="toc-page">p.16</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">12</span>
+                    <span class="toc-text">품질보증정책</span>
+                    <span class="toc-page">p.17</span>
+                </li>
+                <li class="toc-item">
+                    <span class="toc-number">13</span>
+                    <span class="toc-text">제품정보고시</span>
+                    <span class="toc-page">p.18</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 00. 제품 부위 명칭 - 페이지 1 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">00</span>
+                <h2 class="section-title">제품 부위 명칭</h2>
+            </div>
+
+            <p style="font-size: 15px; color: var(--text-dark); margin-bottom: 15px; text-align: center;">
+                아기띠 각 부위의 명칭을 확인하세요
+            </p>
+
+            <div class="image-container-quad">
+                <div class="image-wrapper" style="position: relative;">
+                    <div class="image-number">1</div>
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1762498703951.png" 
+                         alt="제품 부위 명칭 1" 
+                         style="width: 90%; height: 320px; object-fit: contain; background: white; margin: 0 auto; display: block;">
+                </div>
+                <div class="image-wrapper" style="position: relative;">
+                    <div class="image-number">2</div>
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1762498703950.png" 
+                         alt="제품 부위 명칭 2" 
+                         style="width: 90%; height: 320px; object-fit: contain; background: white; margin: 0 auto; display: block;">
+                </div>
+                <div class="image-wrapper" style="position: relative;">
+                    <div class="image-number">3</div>
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1762498703948.png" 
+                         alt="제품 부위 명칭 3" 
+                         style="width: 90%; height: 320px; object-fit: contain; background: white; margin: 0 auto; display: block;">
+                </div>
+                <div class="image-wrapper" style="position: relative;">
+                    <div class="image-number">4</div>
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1762498703946.png" 
+                         alt="제품 부위 명칭 4" 
+                         style="width: 90%; height: 320px; object-fit: contain; background: white; margin: 0 auto; display: block;">
+                </div>
+            </div>
+
+            <div class="page-number">- 3 -</div>
+        </div>
+
+        <!-- 00. 제품 부위 명칭 - 페이지 2 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">00</span>
+                <h2 class="section-title">제품 부위 명칭</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px;">
+                <div class="image-wrapper" style="position: relative;">
+                    <div class="image-number">5</div>
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1762498703944.png" 
+                         alt="제품 부위 명칭 5" 
+                         style="width: 90%; height: 320px; object-fit: contain; background: white; margin: 0 auto; display: block;">
+                </div>
+                <div class="image-wrapper" style="position: relative;">
+                    <div class="image-number">6</div>
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1762929997872.png" 
+                         alt="명칭5" 
+                         style="width: 90%; height: 320px; object-fit: contain; background: white; margin: 0 auto; display: block;">
+                </div>
+            </div>
+
+            <div class="page-number">- 4 -</div>
+        </div>
+
+        <!-- 01. 정확한 착용방법 - 페이지 1 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">정확한 착용방법</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 15px;">
+                <!-- 1. 허리벨트 위치 -->
+                <div class="image-wrapper" style="height: 100%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763363301733.png" 
+                         alt="허리벨트는 골반위로 착용하여 주세요_화살표" 
+                         style="width: 100%; height: 300px; object-fit: cover; background: white;">
+                    <div class="image-caption" style="padding: 8px; background: white; min-height: 48px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; line-height: 1.3;">
+                        <strong>허리벨트는 골반위로 착용하여주시고 최대한 줄여서 사용하세요</strong>
+                    </div>
+                </div>
+
+                <!-- 2. 허리벨트 조절 -->
+                <div class="image-wrapper" style="height: 100%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763363642441.png" 
+                         alt="허리벨트는 골반위로 착용하여주시고 최대한 줄여서 사용하세요_플랫" 
+                         style="width: 100%; height: 300px; object-fit: cover; background: white;">
+                    <div class="image-caption" style="padding: 8px; background: white; min-height: 48px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; line-height: 1.3;">
+                        <strong>어깨끈은 아기의 성장에 따라 조절하여 주세요</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 15px;">
+                <!-- 3. 옆구리끈 조절 -->
+                <div class="image-wrapper" style="height: 100%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763363995830.png" 
+                         alt="옆구리끈은 타이트하게 조절하셔야 분산이 잘 되어 어깨와 허리가 더욱 편합니다_화살표" 
+                         style="width: 100%; height: 300px; object-fit: cover; background: white;">
+                    <div class="image-caption" style="padding: 8px; background: white; min-height: 48px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; line-height: 1.3;">
+                        <strong>옆구리끈은 타이트하게 조절하셔야 분산이 잘 되어 어깨와 허리가 더욱 편합니다</strong>
+                    </div>
+                </div>
+
+                <!-- 4. 바깥보기 시 다리버클 -->
+                <div class="image-wrapper" style="height: 100%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763364208930.png" 
+                         alt="바깥보기 시 다리버클은 해제하여 주세요_화살표" 
+                         style="width: 100%; height: 300px; object-fit: cover; background: white;">
+                    <div class="image-caption" style="padding: 8px; background: white; min-height: 48px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; line-height: 1.3;">
+                        <strong>바깥보기 시 다리버클은 해제하여 주세요</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box" style="padding: 12px; margin: 12px 0;">
+                <div class="note-title" style="font-size: 16px; margin-bottom: 6px;">💡 중요 TIP</div>
+                <div class="note-content" style="font-size: 13px;">
+                    <strong>• 마주보기 시:</strong> (루미락) 버클은 아기의 성장에 따라 조절하여 주세요.<br>
+                    <strong>• 바깥보기 시:</strong> (루미락) 다리버클은 해제하여 주세요.<br>
+                    <strong>• 모든 스트랩을 타이트하게 조절하면</strong> 무게가 고르게 분산되어 장시간 착용해도 편안합니다.
+                </div>
+            </div>
+
+            <div class="page-number">- 5 -</div>
+        </div>
+
+        <!-- 02. 아기를 안을 때 확인사항 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">아기를 안을 때 확인사항</h2>
+            </div>
+
+            <h3 class="subsection-title">3가지만 확인하세요!</h3>
+
+            <div class="step-item">
+                <span class="step-number">1</span>
+                <span class="highlight">한 손은 지퍼를, 한 손은 지퍼의 윗부분을</span> 맞물리게 잡아주세요.
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">2</span>
+                지퍼는 <span class="highlight">밑에서 한 뼘 정도 남겨놓으면</span> 쉽게 올라갑니다.
+            </div>
+
+            <div style="max-width: 600px; margin: 15px auto;">
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763362601327.png" 
+                         alt="아기를 안을 때 지퍼는 밑에서 한 뼘 정도 남기고 안으면 지퍼가 쉽게 올라갑니다_남" 
+                         style="width: 100%; height: 300px; object-fit: cover; background: white;">
+                    <div class="image-caption" style="padding: 8px; background: white; text-align: center; font-size: 12px; line-height: 1.3;">
+                        <strong>아기를 안을 때 지퍼는 밑에서 한 뼘 정도 남기고 안으면 지퍼가 쉽게 올라갑니다</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">3</span>
+                <span class="highlight">이중잠금지퍼</span> - 올리기만 해도 자동잠금, 다시 한번 누르면 2중잠금!
+            </div>
+
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763363066700.png" 
+                         alt="지퍼 맞물리기_화살표1" 
+                         style="width: 100%; height: 350px; object-fit: cover; border-radius: 12px;">
+                    <div class="image-caption">지퍼 맞물리기</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763362428400.png" 
+                         alt="2중 잠금 안전장치_화살표" 
+                         style="width: 100%; height: 350px; object-fit: cover; border-radius: 12px;">
+                    <div class="image-caption">2중 잠금 안전장치</div>
+                </div>
+            </div>
+
+            <div class="warning-box" style="padding: 12px; margin: 12px 0;">
+                <div class="warning-title" style="font-size: 16px; margin-bottom: 6px;">⚠️ 안전 확인</div>
+                <div class="warning-content" style="font-size: 13px;">
+                    아기를 안은 후 반드시 지퍼가 완전히 잠겼는지 확인하세요. 이중잠금을 작동시켜 안전을 확보하세요.
+                </div>
+            </div>
+
+            <div class="page-number">- 6 -</div>
+        </div>
+
+        <!-- 03. 모유수유 & 백지퍼 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">모유수유 & 백지퍼 사용법</h2>
+            </div>
+
+            <h3 class="subsection-title">모유수유 시</h3>
+            <div class="instruction-item">
+                <span class="highlight">(스테이락) 지퍼를 내려주세요.</span> 편안하게 수유할 수 있습니다.
+            </div>
+
+            <div style="max-width: 600px; margin: 15px auto;">
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763362802602.jpeg" 
+                         alt="스테이락 지퍼를 내려주세요. 편안하게 수유할 수 있습니다_대표" 
+                         style="width: 100%; height: 320px; object-fit: cover; background: white;">
+                    <div class="image-caption" style="padding: 15px; background: white; text-align: center; font-size: 14px; line-height: 1.5;">
+                        <strong>스테이락 지퍼를 내려주세요. 편안하게 수유할 수 있습니다.</strong>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">백지퍼 활용</h3>
+            <div class="instruction-item">
+                <span class="highlight">(백지퍼)는</span> 아기를 눕힐 때, 또는 아기띠를 입고 벗을 때, 업고 내릴 때 사용하여 주세요.
+            </div>
+
+            <div style="max-width: 600px; margin: 15px auto;">
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763529627468.jpeg"
+                         style="width: 100%; height: 320px; object-fit: cover; background: white;">
+                    <div class="image-caption" style="padding: 15px; background: white; text-align: center; font-size: 14px; line-height: 1.5;">
+                        <strong>백지퍼는 아기를 눕힐 때, 또는 아기띠를 입고 벗을 때, 업고 내릴 때 사용하여 주세요.</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <div class="note-title">💡 편리한 기능</div>
+                <div class="note-content">
+                    스테이락 지퍼를 활용하면 아기띠를 벗지 않고도 편안하게 수유가 가능합니다. 백지퍼는 아기띠 탈착을 더욱 쉽게 해줍니다.
+                </div>
+            </div>
+
+            <div class="page-number">- 7 -</div>
+        </div>
+
+        <!-- 04. 3단계 목받침 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">3단계 목받침 조절</h2>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">1</span>
+                <strong>1단계:</strong> 지퍼를 끝까지 올려서 사용 - <span class="highlight">아기가 잠들면 올려주세요.</span>
+                <div style="margin-top: 10px;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763362013709.jpeg" 
+                         alt="목받침_1단계_남.jpeg" 
+                         style="width: 100%; max-width: 500px; height: 300px; object-fit: cover; border-radius: 8px;">
+                </div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">2</span>
+                <strong>2단계:</strong> 올린 지퍼를 접어서 고정 - <span class="highlight">목 가누기 힘든 아기에게 적합</span><br>
+                ⇒ 듀얼락(암)과 듀얼락(수)1 체결
+                <div style="margin-top: 10px;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763362013712.jpeg" 
+                         alt="목받침2단계_남.jpeg" 
+                         style="width: 100%; max-width: 500px; height: 300px; object-fit: cover; border-radius: 8px;">
+                </div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">3</span>
+                <strong>3단계:</strong> 나비 모양으로 접어서 고정 - <span class="highlight">바깥 구경할 때 적합</span><br>
+                ⇒ 듀얼락(암)과 듀얼락(수)2 체결
+                <div style="margin-top: 10px;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763362013714.jpeg" 
+                         alt="목받침3단계_남.jpeg" 
+                         style="width: 100%; max-width: 500px; height: 300px; object-fit: cover; border-radius: 8px;">
+                </div>
+            </div>
+
+            <div class="page-number">- 8 -</div>
+        </div>
+
+        <!-- 05. 슬리핑후드 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">슬리핑후드 사용법</h2>
+            </div>
+
+            <h3 class="subsection-title">정면 & 후면 사용 방법</h3>
+
+            <div class="instruction-item">
+                <strong>마주보기 시:</strong> <span class="highlight">후드락(암)1과 후드락(수) 체결</span>
+            </div>
+
+            <div class="instruction-item">
+                <strong>바깥보기 시:</strong> <span class="highlight">후드락(암)2와 후드락(수) 체결</span>
+            </div>
+
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763361744841.jpeg" 
+                         alt="마주보기 시 후드 착용_남.jpeg" 
+                         style="width: 100%; height: 400px; object-fit: cover; background: white;">
+                    <div class="image-caption">마주보기 시 후드 착용</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763361744843.jpeg" 
+                         alt="바깥보기 시 후드 착용_남.jpeg" 
+                         style="width: 100%; height: 400px; object-fit: cover; background: white;">
+                    <div class="image-caption">바깥보기 시 후드 착용</div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <div class="note-title">💡 슬리핑후드 활용</div>
+                <div class="note-content">
+                    아기가 잠들었을 때 슬리핑후드를 사용하면 머리를 편안하게 받쳐주고 햇빛이나 바람으로부터 보호할 수 있습니다.
+                </div>
+            </div>
+
+            <div class="page-number">- 9 -</div>
+        </div>
+
+        <!-- 06. 부스터 사용방법 - 페이지 1 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">부스터 사용방법</h2>
+            </div>
+
+            <h3 class="subsection-title">의자에서 부스터로 활용하기</h3>
+
+            <div class="step-item" style="display: flex; align-items: center; gap: 20px; padding: 13px 18px; position: relative;">
+                <div style="flex: 0 0 45%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763700195908.jpeg" 
+                         alt="1번부스터" 
+                         style="width: 100%; height: 280px; object-fit: contain; border-radius: 8px;">
+                </div>
+                <div style="flex: 1; padding-left: 60px; position: relative;">
+                    <span class="step-number" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%);">1</span>
+                    1. <span class="highlight">아기띠를 의자 등받이에 입혀주세요</span> </br>
+                    2. <span class="highlight">아기를 바깥보기로 앉혀주세요</span>
+                </div>
+            </div>
+
+            <div class="step-item" style="display: flex; align-items: center; gap: 20px; padding: 13px 18px; position: relative;">
+                <div style="flex: 0 0 45%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763700195912.jpg" 
+                         alt="2번부스터" 
+                         style="width: 100%; height: 280px; object-fit: contain; border-radius: 8px;">
+                </div>
+                <div style="flex: 1; padding-left: 60px; position: relative;">
+                    <span class="step-number" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%);">2</span>
+                    <span class="highlight">보조벨트는</span> 아기가 앉는 부분과 앉는판을 함께 단단히 묶어주세요.
+                </div>
+            </div>
+
+            <div class="step-item" style="display: flex; align-items: center; gap: 20px; padding: 13px 18px; position: relative;">
+                <div style="flex: 0 0 45%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763700195915.jpg" 
+                         alt="3번부스터" 
+                         style="width: 100%; height: 280px; object-fit: contain; border-radius: 8px;">
+                </div>
+                <div style="flex: 1; padding-left: 60px; position: relative;">
+                    <span class="step-number" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%);">3</span>
+                    <span class="highlight">허리벨트와 옆구리 벨트는</span> 앉는판 밑으로 의자다리를 통과하여 체결하여 주세요. # 옆구리 벨트는 아기 허리를 감싸면서 교차하여 체결해주세요.
+                </div>
+            </div>
+
+            <div class="page-number">- 10 -</div>
+        </div>
+
+        <!-- 06. 부스터 사용방법 - 페이지 2 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">부스터 사용방법 (계속)</h2>
+            </div>
+
+            <div class="step-item" style="display: flex; align-items: center; gap: 20px; padding: 13px 18px; position: relative;">
+                <div style="flex: 0 0 45%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763700195917.jpg" 
+                         alt="4번부스터" 
+                         style="width: 100%; height: 280px; object-fit: contain; border-radius: 8px;">
+                </div>
+                <div style="flex: 1; padding-left: 60px; position: relative;">
+                    <span class="step-number" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%);">4</span>
+                    <span class="highlight">어깨벨트는 끝까지 줄여주시고</span> 두개의 연결끈을 한바뀌 감아 똑딱이로 체결하여 주세요.
+                </div>
+            </div>
+
+            <div class="step-item" style="display: flex; align-items: center; gap: 20px; padding: 13px 18px; position: relative;">
+                <div style="flex: 0 0 45%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763700195920.jpg" 
+                         alt="5번부스터" 
+                         style="width: 100%; height: 280px; object-fit: contain; border-radius: 8px;">
+                </div>
+                <div style="flex: 1; padding-left: 60px; position: relative;">
+                    <span class="step-number" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%);">5</span>
+                    <span class="highlight">다리버클은 </span> 해제하여 주세요.
+                </div>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">6</span>
+                모든 조절끈은 <span class="highlight">타이트하게 조절</span>하여 주세요.
+            </div>
+
+            <div class="note-box">
+                <div class="note-title">💡 부스터 활용 팁</div>
+                <div class="note-content">
+                    부스터로 사용하는 동안 부모님께서는 항상 아기를 잘 살펴주시고 자리를 비우지 말아주세요.
+                </div>
+            </div>
+
+            <div class="page-number">- 11 -</div>
+        </div>
+
+        <!-- 07. 신생아 사용방법 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">07</span>
+                <h2 class="section-title">신생아 사용방법</h2>
+            </div>
+
+            <h3 class="subsection-title">신생아 안전 착용법</h3>
+
+            <div class="step-item">
+                <span class="step-number">1</span>
+                아기띠를 착용하고 <span class="highlight">소파에 기대어 앉아주세요.</span>
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">2</span>
+                어깨버클을 해제하여 주세요.
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">3</span>
+                옆구리 끈은 <span class="highlight">느슨하게 조절</span>하여 주세요.
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">4</span>
+                아기를 <span class="highlight">엉덩이와 목을 잘 받쳐주면서</span> 안아주세요.
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">5</span>
+                어깨버클을 다시 잠궈주시고 <span class="highlight">옆구리 버클을 타이트하게 조절</span>하여 주세요.
+            </div>
+
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1762998241901.png" 
+                         alt="신생아 올바른 자세_일러" 
+                         style="width: 100%; height: 400px; object-fit: cover; border-radius: 12px;">
+                    <div class="image-caption">신생아 올바른 자세</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1762998241904.png" 
+                         alt="착용 완료 모습_화살표" 
+                         style="width: 100%; height: 400px; object-fit: cover; border-radius: 12px;">
+                    <div class="image-caption">착용 완료 모습</div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <div class="warning-title">⚠️ 중요</div>
+                <div class="warning-content">
+                    <strong>• 태아자세로 안을 시:</strong> 다리버클은 잠궈주세요.<br>
+                    <strong>• 정상자세로 안을 시:</strong> 다리버클을 해제하여 주세요.
+                </div>
+            </div>
+
+            <div class="page-number">- 12 -</div>
+        </div>
+
+        <!-- 08. 혼자 업는 방법 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">08</span>
+                <h2 class="section-title">혼자 업는 방법</h2>
+            </div>
+
+            <h3 class="subsection-title">혼자서도 안전하게 업기</h3>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; align-items: start;">
+                <!-- 왼쪽: 이미지 -->
+                <div style="display: flex; align-items: flex-start;">
+                    <div class="image-wrapper" style="width: 100%;">
+                        <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1762928373544.png" 
+                             alt="혼자업는방법" 
+                             style="width: 100%; height: auto; max-height: 600px; object-fit: contain; border-radius: 12px;">
+                    </div>
+                </div>
+
+                <!-- 오른쪽: 설명 -->
+                <div>
+                    <div class="step-item" style="margin-bottom: 14px;">
+                        <span class="step-number">1</span>
+                        아기띠를 <span class="highlight">평평한 소파나 침대에 펼쳐주세요.</span>
+                    </div>
+
+                    <div class="step-item" style="margin-bottom: 14px;">
+                        <span class="step-number">2</span>
+                        어깨버클과 옆구리 버클을 해제하여 주세요.
+                    </div>
+
+                    <div class="step-item" style="margin-bottom: 14px;">
+                        <span class="step-number">3</span>
+                        아기를 안는 부분에 아기를 눕혀주세요.
+                    </div>
+
+                    <div class="step-item" style="margin-bottom: 14px;">
+                        <span class="step-number">4</span>
+                        <span class="highlight">어깨버클과 옆구리 버클을 다시 잠궈</span> 줍니다.
+                    </div>
+
+                    <div class="step-item" style="margin-bottom: 14px;">
+                        <span class="step-number">5</span>
+                        아기를 <span class="highlight">등받이 있는 소파나 침대에 앉혀주세요.</span>
+                    </div>
+
+                    <div class="step-item" style="margin-bottom: 14px;">
+                        <span class="step-number">6</span>
+                        조끼아기띠를 <span class="highlight">가방 메듯이 팔을 넣어주시고</span> 지퍼를 올려주세요.
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box" style="margin-top: 40px;">
+                <div class="note-title">💡 혼자 업기 팁</div>
+                <div class="note-content">
+                    등받이가 있는 곳에서 진행하면 더욱 안전합니다. 처음에는 천천히, 익숙해지면 빠르게 할 수 있습니다.
+                </div>
+            </div>
+
+            <div class="page-number">- 13 -</div>
+        </div>
+
+        <!-- 09. 침받이 부착 방법 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">09</span>
+                <h2 class="section-title">침받이 부착 방법</h2>
+            </div>
+
+            <h3 class="subsection-title">마주보기 침받이</h3>
+            <div class="instruction-item">
+                마주보기 침받이는 <span class="highlight">아기띠의 어깨끈에 감아 사용</span>합니다.
+            </div>
+
+            <div style="max-width: 600px; margin: 30px auto; text-align: center;">
+                <div class="image-wrapper" style="display: inline-block; width: 100%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763531394373.png" 
+                         alt="마주보기침받이부착" 
+                         style="width: 100%; max-width: 500px; height: 400px; object-fit: contain; border-radius: 12px; display: block; margin: 0 auto;">
+                    <div class="image-caption">마주보기 침받이 착용</div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">버터플라이 침받이</h3>
+            <div class="instruction-item">
+                <span class="highlight">라벨이 있는 침받이</span>를 아기띠 착용 기준으로 오른쪽에 부착합니다.
+            </div>
+
+            <div style="max-width: 600px; margin: 30px auto; text-align: center;">
+                <div class="image-wrapper" style="display: inline-block; width: 100%;">
+                    <img src="https://images002.sabangnet.co.kr/v1/AUTH_5e5b33290a9e40f6a58801628c96c724/mw164446/image/1763531466785.png" 
+                         alt="버터플라이침받이착용이미지" 
+                         style="width: 100%; max-width: 500px; height: 400px; object-fit: contain; border-radius: 12px; display: block; margin: 0 auto;">
+                    <div class="image-caption">버터플라이 침받이 착용</div>
+                </div>
+            </div>
+
+            <div class="page-number">- 14 -</div>
+        </div>
+
+        <!-- 10. 주의사항 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">10</span>
+                <h2 class="section-title">주의사항</h2>
+            </div>
+
+            <p style="font-size: 14px; color: var(--text-dark); margin-bottom: 20px; text-align: center; font-weight: 500;">
+                본 경고문은 유아용 캐리어에 대한 대한민국 유럽 안전기준을 바탕으로 작성하였으며<br>
+                사용 전 꼭 확인하시기 바랍니다.
+            </p>
+
+            <div class="warning-box">
+                <div class="warning-title">⚠️ 낙상 경고</div>
+                <div class="warning-content">
+                    <strong>낙상 사고가 발생하지 않도록 다음 사항을 꼭 확인해 주십시오.</strong><br><br>
+                    • 몸이 작은 아기는 다리가 통과하는 곳으로 빠질 수 있습니다.<br>
+                    • 아기가 양다리를 벌려 시트 위 정중앙에 있는지 꼭 확인해야 합니다.<br>
+                    • 사용자가 서 있는 균형 상태는 사용자 및 아기의 움직임에 영향을 줍니다.<br>
+                    • 몸을 구부리거나 기댈 때 절대 주의를 기울여야 합니다.<br>
+                    • 사용하기 전에 버클/지퍼/스냅버튼/스트랩/조절장치 등을 반드시 확인하십시오.<br>
+                    • 매번 사용할 때마다 제품 상태 이상 유무를 확인하십시오.<br>
+                    • 사용자의 손은 혹시 일어날지 모르는 위험 상황을 대비하여 항상 아기를 보호하는 위치에 있는 것이 바람직합니다.
+                </div>
+            </div>
+
+            <h3 class="subsection-title">⚠️ 사용 시 주의사항</h3>
+            
+            <ul class="instruction-list">
+                <li class="instruction-item">본 캐리어는 몸무게 3.5kg ~ 15kg 아기만을 위해 디자인되었습니다.</li>
+                <li class="instruction-item">본 캐리어는 일상생활 사용 목적으로 개발되었기 때문에 절대로 활동적인 운동을 할 때 사용하지 마십시오.</li>
+                <li class="instruction-item">사용법이 미숙할 때는 쿠션이 있는 바닥에서 사용을 하거나 보조자의 도움을 받아서 사용하시기 바랍니다.</li>
+                <li class="instruction-item">거울 앞에서 착용 방법을 꼭 익히십시오.</li>
+                <li class="instruction-item">사용하기 전에 버클/지퍼/스냅버튼/스트랩/조절장치 등을 반드시 확인하십시오.</li>
+                <li class="instruction-item">캐리어를 사용할 때는 전기용품 사용 및 요리를 하지 마시고, 뜨거운 음료/음식물을 먹지 마십시오.</li>
+                <li class="instruction-item">본 캐리어를 처음 사용하신 후에 반드시 아기가 싫어하는지 확인하십시오.</li>
+            </ul>
+
+            <div class="page-number">- 15 -</div>
+        </div>
+
+        <!-- 11. 올바른 세탁방법 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">11</span>
+                <h2 class="section-title">올바른 세탁방법</h2>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 30px;">
+                <p style="font-size: 32px; margin-bottom: 10px;">🧺</p>
+                <p style="font-size: 16px; color: var(--text-dark);">제품을 오래 사용하기 위한 올바른 세탁 방법입니다</p>
+            </div>
+
+            <h3 class="subsection-title">✓ 세탁 방법</h3>
+            
+            <ul class="instruction-list">
+                <li class="instruction-item">표백제 사용하지 마세요.</li>
+                <li class="instruction-item">찬물에 중성세제로 손세탁 해주세요.</li>
+                <li class="instruction-item">반드시 단독 세탁 해주세요.</li>
+                <li class="instruction-item">물 속에 오래 담가두지 마시고, 뜨거운 물로 세탁하거나 삶지 마세요.</li>
+                <li class="instruction-item">기계 건조는 절대 하지 말아주세요.</li>
+                <li class="instruction-item">세탁 후 평평하게 뉘어서 직사광선을 피해 통풍이 잘되는 그늘에서 말려 주세요.</li>
+                <li class="instruction-item">세탁기 사용 시, 울코스로 세탁망에 꼭 넣어서 단독 세탁해 주세요.</li>
+                <li class="instruction-item">약간의 오염은 젖은 수건 등으로 두드려 닦거나 부분 세탁하시고 잦은 기계 세탁은 피해 주세요.</li>
+                <li class="instruction-item">아기용품 전용세제도 알칼리 성분이 함유된 경우, 변색 및 탈색의 원인이 될 수 있으므로 중성세제를 사용해 주세요.</li>
+                <li class="instruction-item">드럼세탁기, 건조기에 의한 건조는 제품의 줄임 현상 등 제품 손상 및 변형을 일으킬 수 있으니 자연상태에서 건조해 주세요.</li>
+            </ul>
+
+            <div class="warning-box" style="margin-top: 30px;">
+                <div class="warning-title">⚠️ 중요</div>
+                <div class="warning-content">
+                    세탁 전, 꼭 주의사항의 내용을 확인해 주시기 바랍니다.<br>
+                    잘못된 세탁 및 건조로 인한 사항은 교환, 또는 반품의 사유가 되지 않습니다.
+                </div>
+            </div>
+
+            <div class="page-number">- 16 -</div>
+        </div>
+
+        <!-- 12. 품질보증정책 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">12</span>
+                <h2 class="section-title">품질보증정책</h2>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 30px;">
+                <p style="font-size: 32px; margin-bottom: 10px;">🛡️</p>
+                <p style="font-size: 16px; color: var(--text-dark);">베베스완은 고객님의 만족을 실현하기 위해 소비자분쟁 정책을 준수합니다.</p>
+                <p style="font-size: 16px; color: var(--text-dark); margin-top: 10px;">
+                    제품 구입일로부터 <strong style="color: var(--primary); font-size: 20px;">1년</strong>의 품질보증기간이 적용되며,<br>
+                    제품 이상이 발생한 경우 무상으로 A/S가 진행됩니다.
+                </p>
+            </div>
+
+            <h3 class="subsection-title">✓ 교환 / 반품</h3>
+            <div class="note-box">
+                <div class="note-content">
+                    기능 및 디자인, 색상 불만 시 구입 후 7일 이내에 재판매에 하자가 없는 경우에<br>
+                    해당 구매 사이트에서 교환 및 반품 신청이 가능합니다.
+                </div>
+            </div>
+
+            <h3 class="subsection-title">✓ 무상수리</h3>
+            <div class="note-box">
+                <div class="note-content">
+                    정상적인 사용 중에 제조상의 결함이 나타난 경우 무상수리 됩니다.
+                </div>
+            </div>
+
+            <h3 class="subsection-title">✓ 유상수리</h3>
+            <div class="warning-box">
+                <div class="warning-content">
+                    <strong>다음과 같은 경우에는 보증기간 중이라도 수리비용이 청구됩니다.</strong><br><br>
+                    • 제조상의 결함이 아닌 경우<br>
+                    • 일반적인 사용 또는 소비자의 부주의로 인한 제품 파손 및 고장(예: 지퍼, 버클 등)<br>
+                    • 구입 후 한 달 이상된 제품 수리의 경우 택배비가 발생됩니다.
+                </div>
+            </div>
+
+            <h3 class="subsection-title">⚠️ 수리 불가 사항</h3>
+            <div class="warning-box">
+                <div class="warning-content">
+                    <strong>품질 보증 기간일지라도 아래 사항에 해당되는 경우 수리가 불가하며<br>
+                    임의로 보내신 제품은 반송처리 됩니다.</strong><br><br>
+                    • 고객님의 부주의로 인한 원단 찢어짐, 주름, 구멍 등의 원단 손상이 발생한 경우<br>
+                    • 잘못된 세탁방법으로 인한 제품의 변색, 탈색, 수축 등의 원단 손상이 발생한 경우<br>
+                    • 일상적인 사용으로 마모 및 노후된 경우<br>
+                    • 본사가 아닌 제3자에 의한 제품 수리 및 제품 손상이 발생한 경우
+                </div>
+            </div>
+
+            <div class="page-number">- 17 -</div>
+        </div>
+
+        <!-- 13. 제품정보고시 -->
+        <div class="page content-page">
+            <div class="page-header">
+                <span class="section-number">13</span>
+                <h2 class="section-title">제품정보고시</h2>
+            </div>
+
+            <div style="margin: 30px 0;">
+                <table style="width: 100%; border-collapse: collapse; border: 2px solid var(--primary); font-family: inherit; font-size: 13px;">
+                    <tr style="background: linear-gradient(135deg, var(--primary), var(--secondary)); font-family: inherit; font-size: 13px;">
+                        <th style="padding: 15px; border: 1px solid var(--primary); color: white; font-size: 13px; font-weight: 700; width: 30%; font-family: inherit;">항목</th>
+                        <th style="padding: 15px; border: 1px solid var(--primary); color: white; font-size: 13px; font-weight: 700; font-family: inherit;">내용</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">제품명</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">베베스완 이터니티 조끼아기띠</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">색상</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">이터널베이지 / 쉐도우베이지 / 카본블랙 / 티타늄실버</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">사용연령</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">0 ~ 36개월, 15kg 미만</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">사이즈</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">프리사이즈 - 허리최대 160cm, 가슴최대 160cm</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">구성품</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">아기띠 본품 + 슬리핑후드 + 보관 파우치</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">재질</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">
+                            겉감: 폴리 100%<br>
+                            안감: 폴리 100%
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">제조국</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">대한민국 🇰🇷</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">제조업체</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">주식회사 베베스완</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">브랜드</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">베베스완</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">취급방법</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">찬물단독세탁, 자연건조</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">품질보증기준</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">관련법 및 소비자안전기준에 따름</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">고객센터</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;"><strong>📞 +82 2-3443-1008</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">이메일</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;"><strong>✉️ bebeswan@bebeswan.com</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; background: #FFF8F3; font-weight: 600; font-family: inherit; font-size: 13px;">주소</td>
+                        <td style="padding: 12px 15px; border: 1px solid #E0E0E0; font-family: inherit; font-size: 13px;">대한민국 서울 강남구 논현동 242-15</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="note-box" style="margin-top: 30px;">
+                <div class="note-title">📋 제품 정보</div>
+                <div class="note-content">
+                    제품에 대한 문의사항은 고객센터(02-3443-1008) 또는 이메일(bebeswan@bebeswan.com)로 연락 주시기 바랍니다.<br>
+                    주소: 대한민국 서울 강남구 논현동 242-15
+                </div>
+            </div>
+
+            <div class="page-number">- 18 -</div>
+        </div>
+
+        <!-- 뒷표지 -->
+        <div class="page back-cover">
+            <div class="back-cover-content">
+                <h2>🍼 안전하고 편안한 육아</h2>
+                <p style="font-size: 18px; line-height: 2;">
+                    베베스완과 함께하는<br>
+                    행복한 육아 시간
+                </p>
+
+                <div class="contact-info">
+                    <strong>📞 고객센터</strong>
+                    02-3443-1008
+                    
+                    <strong style="margin-top: 30px;">🏢 베베스완 BEBESWAN</strong>
+                    방탄조끼 아기띠 이터니티
+                </div>
+
+                <div style="margin-top: 50px; font-size: 16px;">
+                    <p>품질보증기간: 구입일로부터 1년</p>
+                    <p>제조국: 대한민국 🇰🇷</p>
+                    <p>KC 안전인증 완료</p>
+                </div>
+            </div>
+
+            <div class="back-cover-footer">
+                <p>© 2025 BEBESWAN. All rights reserved.</p>
+                <p>본 설명서의 내용은 제품 개선을 위해 예고 없이 변경될 수 있습니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 인쇄 최적화
+        window.onbeforeprint = function() {
+            document.body.style.padding = '0';
+        };
+        
+        window.onafterprint = function() {
+            document.body.style.padding = '20px';
+        };
+    </script>
+</body>
+</html>
+
