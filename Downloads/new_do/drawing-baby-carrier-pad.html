@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BC-CP-LR 아기띠 침받이(좌·우) — 양산 도면</title>
+  <style>
+    @page { size: A3 landscape; margin: 10mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Pretendard", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+      background: #e8eaef;
+      color: #111;
+      padding: 16px;
+    }
+    .toolbar {
+      max-width: 1580px;
+      margin: 0 auto 12px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .toolbar a, .toolbar button {
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      border: 1px solid #bbb;
+      background: #fff;
+      cursor: pointer;
+      text-decoration: none;
+      color: #111;
+    }
+    .toolbar button:hover, .toolbar a:hover { background: #f0f2f8; }
+    .sheet-wrap {
+      max-width: 1580px;
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,.12);
+    }
+    .sheet { width: 100%; aspect-ratio: 420 / 297; display: block; }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .toolbar { display: none; }
+      .sheet-wrap { box-shadow: none; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button type="button" onclick="window.print()">인쇄 / PDF 저장 (A3 가로)</button>
+    <a href="drawing.html">식탁의자 도면</a>
+    <a href="index.html">3D 뷰어</a>
+    <span style="font-size:0.8rem;color:#555">스케일 1:1 (패턴) / 1:2 (조립) · 단위 mm · 봉제 SA 10</span>
+  </div>
+
+  <div class="sheet-wrap">
+    <svg class="sheet" viewBox="0 0 1580 1118" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#111"/>
+        </marker>
+        <marker id="arrowR" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto">
+          <path d="M6,0 L0,3 L6,6 Z" fill="#c00"/>
+        </marker>
+        <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="5" stroke="#aaa" stroke-width="0.5"/>
+        </pattern>
+        <pattern id="grain" width="12" height="12" patternUnits="userSpaceOnUse">
+          <line x1="6" y1="0" x2="6" y2="12" stroke="#69c" stroke-width="0.8"/>
+          <polygon points="6,2 4,6 8,6" fill="#69c"/>
+        </pattern>
+        <!-- 좌 패턴 형상 (사다리꼴+라운드) -->
+        <path id="shape-finished-L" d="
+          M 0,0
+          L 140,0
+          Q 200,130 200,260
+          L 20,260
+          Q 0,200 0,120
+          Z" />
+        <path id="shape-pattern-L" d="
+          M -10,-10
+          L 150,-10
+          Q 220,130 220,280
+          L 10,280
+          Q -10,210 -10,120
+          Z" />
+      </defs>
+
+      <rect width="1580" height="1118" fill="#fff"/>
+      <rect x="20" y="20" width="1540" height="1078" fill="none" stroke="#111" stroke-width="1.5"/>
+
+      <!-- 제목 블록 -->
+      <rect x="1120" y="940" width="420" height="138" fill="#f8f9fb" stroke="#111"/>
+      <line x1="1120" y1="980" x2="1540" y2="980" stroke="#111"/>
+      <line x1="1120" y1="1020" x2="1540" y2="1020" stroke="#111"/>
+      <line x1="1280" y1="940" x2="1280" y2="1078" stroke="#111"/>
+      <line x1="1410" y1="940" x2="1410" y2="1078" stroke="#111"/>
+      <text x="1135" y="965" font-size="11" fill="#333">도면명</text>
+      <text x="1135" y="1005" font-size="12" font-weight="600">BC-CP-LR 아기띠 침받이</text>
+      <text x="1135" y="1022" font-size="10">(좌·우 1쌍 / 세트)</text>
+      <text x="1135" y="1055" font-size="11">도번 BC-CP-LR-01 · Rev.01</text>
+      <text x="1295" y="965" font-size="11" fill="#333">재질</text>
+      <text x="1295" y="985" font-size="10">겉: 코튼 옥스포드</text>
+      <text x="1295" y="1000" font-size="10">방수: PUL · 충전 3t</text>
+      <text x="1295" y="1048" font-size="11" fill="#333">스케일</text>
+      <text x="1295" y="1070" font-size="11">패턴 1:1 · 조립 1:2</text>
+      <text x="1425" y="965" font-size="11" fill="#333">단위 / 공차</text>
+      <text x="1425" y="985" font-size="10">mm · 봉제 ±1</text>
+      <text x="1425" y="1002" font-size="10">패턴 ±0.5</text>
+      <text x="1425" y="1048" font-size="11" fill="#333">작성</text>
+      <text x="1425" y="1070" font-size="11">2026-05-20</text>
+
+      <text x="40" y="52" font-size="20" font-weight="700">아기띠 침받이 좌·우 1쌍 — 양산 패턴·봉제 도면</text>
+      <text x="40" y="72" font-size="11" fill="#444">허리벨트 날개 부착형 · 펼침 시 방수면 상향 · Oeko-Tex / KC 시험용 접촉 소재 기준 설계</text>
+
+      <!-- ========== 좌(LEFT) 패턴 1:1 ========== -->
+      <text x="60" y="108" font-size="14" font-weight="600">① 좌(LEFT) — 재단 패턴 (실물 1:1)</text>
+      <text x="60" y="124" font-size="10" fill="#555">절단선 외곽 · 붉은 점선 = 완성선 · SA 10mm 포함</text>
+      <rect x="50" y="135" width="480" height="400" fill="#fafbfc" stroke="#ccc" stroke-dasharray="4 3"/>
+
+      <g transform="translate(140, 165)">
+        <!-- 패턴 (SA 포함) -->
+        <path d="M 0,0 L 160,0 Q 230,140 230,290 L 20,290 Q 0,220 0,130 Z"
+              fill="none" stroke="#111" stroke-width="1.5"/>
+        <!-- 완성선 -->
+        <path d="M 10,10 L 150,10 Q 210,140 210,270 L 30,270 Q 10,210 10,130 Z"
+              fill="none" stroke="#c00" stroke-width="1" stroke-dasharray="6 4"/>
+        <!-- 결 방향 -->
+        <rect x="40" y="40" width="100" height="180" fill="url(#grain)" opacity="0.25" stroke="#69c" stroke-width="0.5"/>
+        <text x="90" y="130" font-size="11" fill="#369" text-anchor="middle">결 (↓)</text>
+        <!-- 노치 -->
+        <circle cx="80" cy="10" r="4" fill="#fff" stroke="#111"/>
+        <circle cx="80" cy="10" r="1.5" fill="#111"/>
+        <text x="95" y="14" font-size="8">노치 N1</text>
+        <circle cx="210" cy="140" r="4" fill="#fff" stroke="#111"/>
+        <text x="225" y="144" font-size="8">N2</text>
+        <circle cx="30" cy="270" r="4" fill="#fff" stroke="#111"/>
+        <text x="45" y="278" font-size="8">N3</text>
+        <!-- 스냅 위치 -->
+        <circle cx="45" cy="25" r="5" fill="none" stroke="#06a" stroke-width="1.2"/>
+        <circle cx="115" cy="25" r="5" fill="none" stroke="#06a" stroke-width="1.2"/>
+        <text x="80" y="50" font-size="8" fill="#06a" text-anchor="middle">스냅 ♀ ×2</text>
+        <!-- 벨크로 -->
+        <rect x="55" y="5" width="50" height="8" fill="#f9e79f" stroke="#111" stroke-width="0.6"/>
+        <text x="80" y="3" font-size="7" text-anchor="middle">벨크로 루프 50×25</text>
+        <!-- 라벨 -->
+        <text x="120" y="200" font-size="28" font-weight="700" fill="#ddd" transform="rotate(-90 120 200)">LEFT</text>
+      </g>
+
+      <!-- 좌 패턴 치수 -->
+      <g font-size="10" fill="#111">
+        <line x1="150" y1="155" x2="300" y2="155" stroke="#111" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+        <text x="225" y="148" text-anchor="middle">160 (상단+SA)</text>
+        <line x1="360" y1="175" x2="360" y2="455" stroke="#111" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+        <text x="375" y="320">290</text>
+        <line x1="130" y1="465" x2="350" y2="465" stroke="#c00" marker-start="url(#arrowR)" marker-end="url(#arrowR)"/>
+        <text x="240" y="480" text-anchor="middle" fill="#c00">200 완성 하단</text>
+        <line x1="130" y1="185" x2="270" y2="185" stroke="#c00" marker-start="url(#arrowR)" marker-end="url(#arrowR)"/>
+        <text x="200" y="178" text-anchor="middle" fill="#c00">140 완성 상단</text>
+        <line x1="120" y1="175" x2="120" y2="445" stroke="#c00" marker-start="url(#arrowR)" marker-end="url(#arrowR)"/>
+        <text x="105" y="310" text-anchor="middle" fill="#c00" transform="rotate(-90 105 310)">260 완성 높이</text>
+      </g>
+
+      <!-- ========== 우(RIGHT) 패턴 1:1 (거울) ========== -->
+      <text x="560" y="108" font-size="14" font-weight="600">② 우(RIGHT) — 재단 패턴 (좌판 거울 대칭)</text>
+      <rect x="550" y="135" width="480" height="400" fill="#fafbfc" stroke="#ccc" stroke-dasharray="4 3"/>
+
+      <g transform="translate(990, 165) scale(-1, 1)">
+        <path d="M 0,0 L 160,0 Q 230,140 230,290 L 20,290 Q 0,220 0,130 Z"
+              fill="none" stroke="#111" stroke-width="1.5"/>
+        <path d="M 10,10 L 150,10 Q 210,140 210,270 L 30,270 Q 10,210 10,130 Z"
+              fill="none" stroke="#c00" stroke-width="1" stroke-dasharray="6 4"/>
+        <rect x="40" y="40" width="100" height="180" fill="url(#grain)" opacity="0.25" stroke="#69c"/>
+        <circle cx="45" cy="25" r="5" fill="none" stroke="#06a" stroke-width="1.2"/>
+        <circle cx="115" cy="25" r="5" fill="none" stroke="#06a" stroke-width="1.2"/>
+        <rect x="55" y="5" width="50" height="8" fill="#f9e79f" stroke="#111" stroke-width="0.6"/>
+        <text x="120" y="200" font-size="28" font-weight="700" fill="#ddd" transform="rotate(-90 120 200)">RIGHT</text>
+      </g>
+      <text x="770" y="124" font-size="10" fill="#c00" text-anchor="middle">※ 우판은 좌판 X축 거울 반전 — 별도 네스트 금지</text>
+
+      <!-- ========== 마카 조립 (1:2) ========== -->
+      <text x="60" y="560" font-size="14" font-weight="600">③ 착용 조립도 (허리벨트 기준 · 1:2)</text>
+      <rect x="50" y="575" width="520" height="240" fill="none" stroke="#ccc" stroke-dasharray="4 3"/>
+
+      <g transform="translate(310, 720)">
+        <!-- 벨트 -->
+        <rect x="-200" y="-15" width="400" height="30" rx="6" fill="#e8dcc8" stroke="#111"/>
+        <text x="0" y="5" font-size="9" text-anchor="middle">허리벨트 (아기띠 본체)</text>
+        <!-- 좌 침받이 (접힘) -->
+        <path d="M -180,-15 L -60,-15 L -40,80 Q -30,120 -50,160 L -170,160 Q -190,100 -180,-15 Z"
+              fill="#d4e8f7" stroke="#111" stroke-width="1"/>
+        <text x="-115" y="90" font-size="9" text-anchor="middle">LEFT</text>
+        <text x="-115" y="105" font-size="8" text-anchor="middle" fill="#555">접힘</text>
+        <!-- 우 침받이 -->
+        <path d="M 180,-15 L 60,-15 L 40,80 Q 30,120 50,160 L 170,160 Q 190,100 180,-15 Z"
+              fill="#d4e8f7" stroke="#111" stroke-width="1"/>
+        <text x="115" y="90" font-size="9" text-anchor="middle">RIGHT</text>
+        <!-- 펼침 화살표 -->
+        <path d="M -200,175 Q -115,210 -30,175" fill="none" stroke="#06a" stroke-width="1" marker-end="url(#arrow)"/>
+        <text x="-115" y="200" font-size="9" fill="#06a" text-anchor="middle">펼침 (방수면 ↑)</text>
+      </g>
+
+      <!-- 펼침 상태 -->
+      <text x="600" y="560" font-size="14" font-weight="600">④ 펼침 상태 (사용 · 1:2)</text>
+      <rect x="590" y="575" width="440" height="240" fill="none" stroke="#ccc" stroke-dasharray="4 3"/>
+      <g transform="translate(810, 700)">
+        <path d="M -170,0 L -30,0 L 10,200 L -130,220 Z" fill="#fce4ec" stroke="#111"/>
+        <path d="M 170,0 L 30,0 L -10,200 L 130,220 Z" fill="#fce4ec" stroke="#111"/>
+        <text x="-80" y="110" font-size="8" text-anchor="middle">PUL ↑</text>
+        <text x="80" y="110" font-size="8" text-anchor="middle">PUL ↑</text>
+        <rect x="-50" y="-12" width="100" height="24" fill="#e8dcc8" stroke="#111"/>
+        <line x1="-170" y1="0" x2="170" y2="0" stroke="#111" stroke-dasharray="3 2"/>
+        <text x="0" y="235" font-size="9" text-anchor="middle">합계 펼침 폭 ≈ 400 (좌+우, 중앙 간격 20)</text>
+      </g>
+
+      <!-- ========== 단면 S-S ========== -->
+      <text x="1060" y="108" font-size="14" font-weight="600">⑤ 단면 S-S (층 구조 · 1:1)</text>
+      <rect x="1050" y="125" width="480" height="200" fill="none" stroke="#ccc" stroke-dasharray="4 3"/>
+      <g transform="translate(1100, 200)">
+        <rect x="0" y="0" width="380" height="18" fill="#f5e6d3" stroke="#111"/>
+        <text x="390" y="14" font-size="9">겉감 옥스포드</text>
+        <rect x="0" y="18" width="380" height="12" fill="url(#hatch)" stroke="#111"/>
+        <text x="390" y="32" font-size="9">3t PU 폼</text>
+        <rect x="0" y="30" width="380" height="8" fill="#e8f4fc" stroke="#111"/>
+        <text x="390" y="40" font-size="9">PUL 방수</text>
+        <rect x="0" y="38" width="380" height="14" fill="#fff5f5" stroke="#111"/>
+        <text x="390" y="50" font-size="9">안감 면 저지</text>
+        <!-- 봉제선 -->
+        <line x1="0" y1="52" x2="380" y2="52" stroke="#c00" stroke-width="1.5"/>
+        <text x="190" y="68" font-size="9" text-anchor="middle" fill="#c00">401 2침 · 3mm 마진</text>
+      </g>
+
+      <!-- ========== 부품·원단 배치 ========== -->
+      <text x="1060" y="350" font-size="14" font-weight="600">⑥ 원단 네스팅 (폭 1450mm 기준)</text>
+      <rect x="1050" y="365" width="480" height="200" fill="#fafbfc" stroke="#ccc"/>
+      <g transform="translate(1070, 385)">
+        <rect x="0" y="0" width="440" height="8" fill="#ddd"/>
+        <text x="220" y="6" font-size="8" text-anchor="middle">원단 폭 →</text>
+        <path d="M 20,30 L 120,30 Q 160,90 160,150 L 40,150 Q 20,110 20,70 Z" fill="#e8dff5" stroke="#111" opacity="0.9"/>
+        <text x="70" y="95" font-size="10">LEFT ×1</text>
+        <path d="M 240,30 L 340,30 Q 380,90 380,150 L 260,150 Q 240,110 240,70 Z" fill="#e8dff5" stroke="#111" opacity="0.9"/>
+        <text x="290" y="95" font-size="10">RIGHT ×1</text>
+        <path d="M 20,170 L 120,170 Q 160,230 160,290 L 40,290 Q 20,250 20,210 Z" fill="#dff0e8" stroke="#111" opacity="0.9"/>
+        <text x="55" y="235" font-size="9">PUL ×2</text>
+        <path d="M 240,170 L 340,170 Q 380,230 380,290 L 260,290 Q 240,250 240,210 Z" fill="#dff0e8" stroke="#111" opacity="0.9"/>
+        <text x="275" y="235" font-size="9">안감 ×2</text>
+        <text x="220" y="175" font-size="9" text-anchor="middle" fill="#555">소요: 겉감 0.42yd/세트 · PUL 0.38yd</text>
+      </g>
+
+      <!-- ========== BOM ========== -->
+      <text x="40" y="830" font-size="13" font-weight="600">부품·자재 목록 (BOM) — 1세트 = 좌1 + 우1</text>
+      <rect x="40" y="840" width="1100" height="118" fill="none" stroke="#111"/>
+      <line x1="40" y1="862" x2="1140" y2="862" stroke="#111"/>
+      <line x1="85" y1="840" x2="85" y2="958" stroke="#111"/>
+      <line x1="175" y1="840" x2="175" y2="958" stroke="#111"/>
+      <line x1="400" y1="840" x2="400" y2="958" stroke="#111"/>
+      <line x1="530" y1="840" x2="530" y2="958" stroke="#111"/>
+      <line x1="590" y1="840" x2="590" y2="958" stroke="#111"/>
+      <line x1="720" y1="840" x2="720" y2="958" stroke="#111"/>
+      <line x1="900" y1="840" x2="900" y2="958" stroke="#111"/>
+
+      <g font-size="9" fill="#111">
+        <text x="62" y="856" text-anchor="middle" font-weight="600">No</text>
+        <text x="130" y="856" text-anchor="middle" font-weight="600">품명</text>
+        <text x="287" y="856" text-anchor="middle" font-weight="600">규격 / 패턴</text>
+        <text x="465" y="856" text-anchor="middle" font-weight="600">재질</text>
+        <text x="560" y="856" text-anchor="middle" font-weight="600">Q'ty</text>
+        <text x="655" y="856" text-anchor="middle" font-weight="600">가공</text>
+        <text x="810" y="856" text-anchor="middle" font-weight="600">봉제</text>
+        <text x="1020" y="856" text-anchor="middle" font-weight="600">비고</text>
+
+        <text x="62" y="878" text-anchor="middle">01</text><text x="130" y="878">겉감 (좌)</text><text x="287" y="878" text-anchor="middle">패턴 L · 160×290</text><text x="465" y="878" text-anchor="middle">면 20s 옥스포드</text><text x="560" y="878" text-anchor="middle">1</text><text x="655" y="878" text-anchor="middle">레이저/다이</text><text x="810" y="878" text-anchor="middle">SA10 이중접</text><text x="1020" y="878" text-anchor="middle">결 ↓</text>
+
+        <text x="62" y="896" text-anchor="middle">02</text><text x="130" y="896">겉감 (우)</text><text x="287" y="896" text-anchor="middle">패턴 R · 거울</text><text x="465" y="896" text-anchor="middle">동일</text><text x="560" y="896" text-anchor="middle">1</text><text x="655" y="896" text-anchor="middle">동일</text><text x="810" y="896" text-anchor="middle">동일</text><text x="1020" y="896" text-anchor="middle">좌와 대칭</text>
+
+        <text x="62" y="914" text-anchor="middle">03</text><text x="130" y="914">PUL 방수층</text><text x="287" y="914" text-anchor="middle">L/R 각 1</text><text x="465" y="914" text-anchor="middle">75D PUL</text><text x="560" y="914" text-anchor="middle">2</text><text x="655" y="914" text-anchor="middle">열절단</text><text x="810" y="914" text-anchor="middle">지그재그 고정</text><text x="1020" y="914" text-anchor="middle">접촉면</text>
+
+        <text x="62" y="932" text-anchor="middle">04</text><text x="130" y="932">안감</text><text x="287" y="932" text-anchor="middle">L/R 각 1</text><text x="465" y="932" text-anchor="middle">면 저지</text><text x="560" y="932" text-anchor="middle">2</text><text x="655" y="932" text-anchor="middle">다이</text><text x="810" y="932" text-anchor="middle">맨봉 뒤집기</text><text x="1020" y="932" text-anchor="middle">—</text>
+
+        <text x="62" y="950" text-anchor="middle">05</text><text x="130" y="950">충전재</text><text x="287" y="950" text-anchor="middle">3mm PU 폼</text><text x="465" y="950" text-anchor="middle">25kg/m³</text><text x="560" y="950" text-anchor="middle">2</text><text x="655" y="950" text-anchor="middle">스킵 컷</text><text x="810" y="950" text-anchor="middle">4점 고정</text><text x="1020" y="950" text-anchor="middle">쿠션감</text>
+      </g>
+      <line x1="40" y1="884" x2="1140" y2="884" stroke="#ddd"/>
+      <line x1="40" y1="902" x2="1140" y2="902" stroke="#ddd"/>
+      <line x1="40" y1="920" x2="1140" y2="920" stroke="#ddd"/>
+      <line x1="40" y1="938" x2="1140" y2="938" stroke="#ddd"/>
+
+      <!-- 부자재 -->
+      <g font-size="9.5" fill="#222">
+        <text x="40" y="980" font-weight="600">부자재 (세트)</text>
+        <text x="40" y="998">스냅 10mm: 수(♀)×4 + 암(♂)×4 (벨트 고정) ｜ 벨크로: 루프 50×25mm×2 + 훅 50×25mm (본체 벨트 측) ｜ 라벨: 세탁 25×40 + L/R 식별 10×30</text>
+        <text x="40" y="1016" font-weight="600">봉제 공정</text>
+        <text x="40" y="1034">① 층 누비(겉-PUL-폼-안감) → ② 테두리 바이어스 12mm → ③ 상단 벨크로·스냅 → ④ 바탕크 4점(하단·측) → ⑤ 검사</text>
+        <text x="40" y="1052">검사: 대칭 ±1mm · 스냅 체결 3kg 인장 · PUL 누수 스프레이 30초 무침투 ｜ 포장: OPP+건조제 1세트/봉지</text>
+        <text x="40" y="1070">완성 치수(1매): 상단 140 × 하단 200 × 높이 260 · 두께 8±1 · 세트 중량 약 185g</text>
+      </g>
+
+      <!-- 범례 -->
+      <rect x="1160" y="840" width="180" height="90" fill="#f8f9fb" stroke="#111"/>
+      <text x="1175" y="860" font-size="10" font-weight="600">범례</text>
+      <line x1="1175" y1="875" x2="1205" y2="875" stroke="#111" stroke-width="1.5"/><text x="1212" y="879" font-size="8">재단선</text>
+      <line x1="1175" y1="890" x2="1205" y2="890" stroke="#c00" stroke-dasharray="4 3"/><text x="1212" y="894" font-size="8">완성선</text>
+      <circle cx="1185" cy="905" r="4" fill="none" stroke="#06a"/><text x="1212" y="909" font-size="8">스냅</text>
+      <rect x="1175" y="915" width="18" height="8" fill="#f9e79f" stroke="#111"/><text x="1212" y="922" font-size="8">벨크로</text>
+
+    </svg>
+  </div>
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>의자 3D — 파라미터 제원</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
+      background: #0f1117;
+      color: #e8eaed;
+      overflow: hidden;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+    }
+    #panel {
+      background: #1a1d27;
+      border-right: 1px solid #2a2f3d;
+      padding: 20px 16px;
+      overflow-y: auto;
+      z-index: 2;
+    }
+    h1 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      font-size: 0.75rem;
+      color: #8b93a7;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .group {
+      margin-bottom: 18px;
+    }
+    .group-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6b7289;
+      margin-bottom: 10px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #2a2f3d;
+    }
+    label {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      color: #b4bac8;
+    }
+    label span.val {
+      font-variant-numeric: tabular-nums;
+      color: #7dd3fc;
+      font-size: 0.75rem;
+      min-width: 48px;
+      text-align: right;
+    }
+    input[type="range"] {
+      grid-column: 1 / -1;
+      width: 100%;
+      accent-color: #38bdf8;
+      height: 4px;
+    }
+    select {
+      width: 100%;
+      padding: 8px 10px;
+      background: #252936;
+      border: 1px solid #3a4155;
+      border-radius: 6px;
+      color: #e8eaed;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+    }
+    #canvas-wrap {
+      position: relative;
+      min-height: 0;
+    }
+    canvas { display: block; width: 100%; height: 100%; }
+    #hint {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      color: #6b7289;
+      pointer-events: none;
+    }
+    button.reset {
+      width: 100%;
+      margin-top: 8px;
+      padding: 10px;
+      background: #252936;
+      border: 1px solid #3a4155;
+      border-radius: 6px;
+      color: #e8eaed;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    button.reset:hover { background: #2f3548; }
+    #dims-readout {
+      margin-top: 16px;
+      padding: 12px;
+      background: #12151c;
+      border-radius: 8px;
+      font-size: 0.72rem;
+      line-height: 1.7;
+      color: #8b93a7;
+      font-variant-numeric: tabular-nums;
+    }
+    #dims-readout strong { color: #cbd5e1; }
+  </style>
+</head>
+<body>
+  <aside id="panel">
+    <h1>의자 3D 제원</h1>
+    <p class="subtitle">슬라이더로 치수(mm)를 바꾸면 형상이 즉시 갱신됩니다.</p>
+    <p style="margin-bottom:14px"><a href="drawing.html" style="color:#7dd3fc;font-size:0.8rem">→ 양산 도면 (A3) 보기</a></p>
+
+    <div class="group">
+      <div class="group-title">좌판</div>
+      <label>폭 (W)
+        <span class="val" id="v-seatWidth">420</span>
+        <input type="range" id="seatWidth" min="300" max="550" value="420" step="5" />
+      </label>
+      <label>깊이 (D)
+        <span class="val" id="v-seatDepth">400</span>
+        <input type="range" id="seatDepth" min="280" max="480" value="400" step="5" />
+      </label>
+      <label>두께
+        <span class="val" id="v-seatThickness">25</span>
+        <input type="range" id="seatThickness" min="15" max="40" value="25" step="1" />
+      </label>
+    </div>
+
+    <div class="group">
+      <div class="group-title">높이</div>
+      <label>좌판 높이 (좌판 상단)
+        <span class="val" id="v-seatHeight">450</span>
+        <input type="range" id="seatHeight" min="380" max="520" value="450" step="5" />
+      </label>
+      <label>등받이 높이
+        <span class="val" id="v-backHeight">380</span>
+        <input type="range" id="backHeight" min="200" max="500" value="380" step="5" />
+      </label>
+    </div>
+
+    <div class="group">
+      <div class="group-title">구조</div>
+      <label>다리 단면
+        <span class="val" id="v-legSize">40</span>
+        <input type="range" id="legSize" min="25" max="60" value="40" step="1" />
+      </label>
+      <label>등받이 두께
+        <span class="val" id="v-backThickness">20</span>
+        <input type="range" id="backThickness" min="12" max="35" value="20" step="1" />
+      </label>
+      <label>등받이 기울기 (°)
+        <span class="val" id="v-backAngle">8</span>
+        <input type="range" id="backAngle" min="0" max="20" value="8" step="1" />
+      </label>
+      <label>좌판 앞 오버행
+        <span class="val" id="v-seatOverhang">30</span>
+        <input type="range" id="seatOverhang" min="0" max="80" value="30" step="5" />
+      </label>
+    </div>
+
+    <div class="group">
+      <div class="group-title">스타일</div>
+      <label for="chairType">의자 유형</label>
+      <select id="chairType">
+        <option value="dining">식탁 의자 (4다리)</option>
+        <option value="arm">팔걸이 의자</option>
+        <option value="stool">스툴 (등받이 없음)</option>
+      </select>
+      <label for="materialPreset">재질</label>
+      <select id="materialPreset">
+        <option value="oak">오크 목재</option>
+        <option value="walnut">월넛</option>
+        <option value="painted">도장 (화이트)</option>
+        <option value="metal">메탈 프레임</option>
+      </select>
+    </div>
+
+    <button class="reset" type="button" id="resetBtn">기본 제원으로 초기화</button>
+
+    <div id="dims-readout"></div>
+  </aside>
+
+  <div id="canvas-wrap">
+    <canvas id="c"></canvas>
+    <div id="hint">드래그: 회전 · 스크롤: 확대/축소 · 우클릭: 이동</div>
+  </div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    const DEFAULTS = {
+      seatWidth: 420,
+      seatDepth: 400,
+      seatThickness: 25,
+      seatHeight: 450,
+      backHeight: 380,
+      legSize: 40,
+      backThickness: 20,
+      backAngle: 8,
+      seatOverhang: 30,
+      chairType: 'dining',
+      materialPreset: 'oak',
+    };
+
+    const params = { ...DEFAULTS };
+    const mm = (v) => v / 1000;
+
+    let scene, camera, renderer, controls, chairGroup, ground;
+
+    function getMaterials(preset) {
+      const mats = {
+        oak: {
+          wood: new THREE.MeshStandardMaterial({ color: 0xc4a574, roughness: 0.75, metalness: 0.02 }),
+          dark: new THREE.MeshStandardMaterial({ color: 0x9a7b4f, roughness: 0.8, metalness: 0.02 }),
+        },
+        walnut: {
+          wood: new THREE.MeshStandardMaterial({ color: 0x5c4033, roughness:  0.7, metalness: 0.03 }),
+          dark: new THREE.MeshStandardMaterial({ color: 0x3d2817, roughness: 0.75, metalness: 0.03 }),
+        },
+        painted: {
+          wood: new THREE.MeshStandardMaterial({ color: 0xf5f5f0, roughness: 0.35, metalness: 0.05 }),
+          dark: new THREE.MeshStandardMaterial({ color: 0xe8e8e0, roughness: 0.4, metalness: 0.05 }),
+        },
+        metal: {
+          wood: new THREE.MeshStandardMaterial({ color: 0x8a9099, roughness: 0.25, metalness: 0.85 }),
+          dark: new THREE.MeshStandardMaterial({ color: 0x5a6068, roughness: 0.3, metalness: 0.9 }),
+        },
+      };
+      return mats[preset] || mats.oak;
+    }
+
+    function box(w, h, d, mat) {
+      const geo = new THREE.BoxGeometry(w, h, d);
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      return mesh;
+    }
+
+    function buildChair(p) {
+      const group = new THREE.Group();
+      const { wood, dark } = getMaterials(p.materialPreset);
+
+      const W = mm(p.seatWidth);
+      const D = mm(p.seatDepth);
+      const st = mm(p.seatThickness);
+      const sh = mm(p.seatHeight);
+      const bh = mm(p.backHeight);
+      const leg = mm(p.legSize);
+      const bt = mm(p.backThickness);
+      const angleRad = (p.backAngle * Math.PI) / 180;
+      const over = mm(p.seatOverhang);
+      const hasBack = p.chairType !== 'stool';
+      const hasArm = p.chairType === 'arm';
+
+      const seatY = sh - st / 2;
+      const legH = sh - st;
+
+      const seat = box(W, st, D, wood);
+      seat.position.set(0, seatY, over * 0.25);
+      group.add(seat);
+
+      const inset = leg * 0.6;
+      const legPositions = [
+        [-W / 2 + inset, legH / 2, -D / 2 + inset + over * 0.25],
+        [ W / 2 - inset, legH / 2, -D / 2 + inset + over * 0.25],
+        [-W / 2 + inset, legH / 2,  D / 2 - inset + over * 0.25],
+        [ W / 2 - inset, legH / 2,  D / 2 - inset + over * 0.25],
+      ];
+
+      legPositions.forEach(([x, y, z]) => {
+        const legMesh = box(leg, legH, leg, dark);
+        legMesh.position.set(x, y, z);
+        group.add(legMesh);
+      });
+
+      if (hasBack) {
+        const backGroup = new THREE.Group();
+        const backW = W * 0.92;
+        const backPanel = box(backW, bh, bt, wood);
+        backPanel.position.set(0, bh / 2, 0);
+        backGroup.add(backPanel);
+
+        const railH = mm(30);
+        const topRail = box(backW, railH, bt * 0.9, dark);
+        topRail.position.set(0, bh - railH / 2, 0);
+        backGroup.add(topRail);
+
+        const slatCount = Math.max(3, Math.floor(p.seatWidth / 80));
+        const slatW = (backW * 0.85) / slatCount;
+        const slatGap = (backW * 0.85 - slatW * slatCount) / (slatCount + 1);
+        for (let i = 0; i < slatCount; i++) {
+          const slat = box(slatW * 0.7, bh * 0.55, bt * 0.5, dark);
+          const x = -backW * 0.425 + slatGap + slatW * 0.5 + i * (slatW + slatGap);
+          slat.position.set(x, bh * 0.42, bt * 0.3);
+          backGroup.add(slat);
+        }
+
+        const backZ = -D / 2 + over * 0.25 - bt / 2;
+        const backBaseY = seatY + st / 2;
+        backGroup.position.set(0, backBaseY, backZ);
+        backGroup.rotation.x = -angleRad;
+        group.add(backGroup);
+
+        const stretcher = box(W * 0.7, leg * 0.5, leg * 0.5, dark);
+        stretcher.position.set(0, legH * 0.35, -D / 2 + inset + over * 0.25);
+        group.add(stretcher);
+      }
+
+      if (hasArm) {
+        const armH = mm(p.seatHeight * 0.55);
+        const armD = mm(45);
+        const armW = mm(55);
+        [-1, 1].forEach((side) => {
+          const arm = box(armW, armH, armD, wood);
+          arm.position.set(side * (W / 2 - armW / 2 + mm(5)), seatY + armH / 2 - mm(20), over * 0.25);
+          group.add(arm);
+
+          const support = box(leg * 0.8, armH * 0.6, leg * 0.8, dark);
+          support.position.set(
+            side * (W / 2 - inset),
+            seatY - armH * 0.15,
+            D / 4 + over * 0.25
+          );
+          group.add(support);
+        });
+      }
+
+      group.position.y = 0;
+      return group;
+    }
+
+    function updateReadout() {
+      const p = params;
+      const totalH = p.seatHeight + (p.chairType === 'stool' ? 0 : p.backHeight * Math.cos(p.backAngle * Math.PI / 180));
+      document.getElementById('dims-readout').innerHTML = `
+        <strong>요약 치수</strong><br>
+        전체 폭: ${p.seatWidth} mm<br>
+        좌판 깊이: ${p.seatDepth} mm<br>
+        좌판 높이: ${p.seatHeight} mm<br>
+        최대 높이(approx): ${Math.round(totalH)} mm<br>
+        유형: ${p.chairType === 'dining' ? '식탁' : p.chairType === 'arm' ? '팔걸이' : '스툴'}
+      `;
+    }
+
+    function rebuildChair() {
+      if (chairGroup) {
+        chairGroup.traverse((obj) => {
+          if (obj.geometry) obj.geometry.dispose();
+          if (obj.material) {
+            const mats = Array.isArray(obj.material) ? obj.material : [obj.material];
+            mats.forEach((m) => m.dispose());
+          }
+        });
+        scene.remove(chairGroup);
+      }
+      chairGroup = buildChair(params);
+      scene.add(chairGroup);
+      updateReadout();
+    }
+
+    function init() {
+      const wrap = document.getElementById('canvas-wrap');
+      const canvas = document.getElementById('c');
+
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x0f1117);
+      scene.fog = new THREE.Fog(0x0f1117, 4, 12);
+
+      camera = new THREE.PerspectiveCamera(42, 1, 0.01, 50);
+      camera.position.set(1.4, 1.0, 1.6);
+
+      renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.target.set(0, 0.45, 0);
+      controls.maxPolarAngle = Math.PI * 0.48;
+      controls.minDistance = 0.6;
+      controls.maxDistance = 4;
+
+      const hemi = new THREE.HemisphereLight(0xdce6ff, 0x2a3040, 0.55);
+      scene.add(hemi);
+
+      const key = new THREE.DirectionalLight(0xffffff, 1.1);
+      key.position.set(2, 4, 3);
+      key.castShadow = true;
+      key.shadow.mapSize.set(2048, 2048);
+      key.shadow.camera.near = 0.5;
+      key.shadow.camera.far = 12;
+      const s = 3;
+      key.shadow.camera.left = -s;
+      key.shadow.camera.right = s;
+      key.shadow.camera.top = s;
+      key.shadow.camera.bottom = -s;
+      scene.add(key);
+
+      const fill = new THREE.DirectionalLight(0x8899bb, 0.35);
+      fill.position.set(-2, 1, -1);
+      scene.add(fill);
+
+      const floorGeo = new THREE.PlaneGeometry(8, 8);
+      const floorMat = new THREE.MeshStandardMaterial({ color: 0x1e222c, roughness: 0.9 });
+      ground = new THREE.Mesh(floorGeo, floorMat);
+      ground.rotation.x = -Math.PI / 2;
+      ground.receiveShadow = true;
+      scene.add(ground);
+
+      const grid = new THREE.GridHelper(4, 20, 0x2a3348, 0x1e2636);
+      grid.position.y = 0.001;
+      scene.add(grid);
+
+      rebuildChair();
+      resize();
+      window.addEventListener('resize', resize);
+      animate();
+    }
+
+    function resize() {
+      const wrap = document.getElementById('canvas-wrap');
+      const w = wrap.clientWidth;
+      const h = wrap.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h, false);
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+
+    function bindControls() {
+      const ids = [
+        'seatWidth', 'seatDepth', 'seatThickness', 'seatHeight',
+        'backHeight', 'legSize', 'backThickness', 'backAngle', 'seatOverhang',
+      ];
+
+      ids.forEach((id) => {
+        const el = document.getElementById(id);
+        const valEl = document.getElementById('v-' + id);
+        const update = () => {
+          const v = id === 'backAngle' ? +el.value : +el.value;
+          params[id] = v;
+          valEl.textContent = v;
+          rebuildChair();
+        };
+        el.addEventListener('input', update);
+      });
+
+      document.getElementById('chairType').addEventListener('change', (e) => {
+        params.chairType = e.target.value;
+        const backSliders = ['backHeight', 'backAngle', 'backThickness'];
+        const disabled = params.chairType === 'stool';
+        backSliders.forEach((id) => {
+          document.getElementById(id).disabled = disabled;
+        });
+        rebuildChair();
+      });
+
+      document.getElementById('materialPreset').addEventListener('change', (e) => {
+        params.materialPreset = e.target.value;
+        rebuildChair();
+      });
+
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        Object.assign(params, DEFAULTS);
+        ids.forEach((id) => {
+          const el = document.getElementById(id);
+          el.value = DEFAULTS[id];
+          document.getElementById('v-' + id).textContent = DEFAULTS[id];
+        });
+        document.getElementById('chairType').value = DEFAULTS.chairType;
+        document.getElementById('materialPreset').value = DEFAULTS.materialPreset;
+        rebuildChair();
+      });
+    }
+
+    bindControls();
+    init();
+  </script>
+</body>
+</html>
